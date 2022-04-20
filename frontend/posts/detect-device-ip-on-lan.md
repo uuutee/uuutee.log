@@ -1,6 +1,9 @@
 ---
 title: 'macでLAN上のデバイスのIPを調べる'
 date: '2018-01-24'
+categories:
+  - macOS
+  - shell
 ---
 
 ARP(Address Resolution Protocol) 呼ばれるプロトコルにより、OS上でIPアドレスとMACアドレスの対応状況をデータベース化している(ARPテーブル)がある。  
