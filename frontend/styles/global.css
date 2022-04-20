@@ -25,10 +25,3 @@ img {
   max-width: 100%;
   display: block;
 }
-
-pre {
-  background: #f5f2f0;
-  padding: 1em;
-  margin: 0.5em 0;
-  overflow: auto;
-}

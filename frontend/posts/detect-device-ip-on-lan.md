@@ -6,11 +6,9 @@ date: '2018-01-24'
 ARP(Address Resolution Protocol) 呼ばれるプロトコルにより、OS上でIPアドレスとMACアドレスの対応状況をデータベース化している(ARPテーブル)がある。  
 このARPテーブルを調べることでmacでLAN上のデバイスのIPを調べることができる。
 
-```sh
-arp -a
-```
+```shell
+$ arp -a
 
-```
 # 出力例
 ? (192.168.10.104) at ac:d5:64:1f:2f:bb on en0 ifscope [ethernet]
 ? (192.168.10.105) at b0:f7:c4:d7:fe:aa on en0 ifscope [ethernet]
@@ -22,15 +20,16 @@ arp -a
 `arp-scan` というツールでより詳細な情報を確認できる
 
 ## インストール
-```sh
-brew install arp-scan
+
+```shell
+$ brew install arp-scan
 ```
 
 ## ネットワークインターフェイスカード(NIC)を調べる
 NIC を指定しないとIPが見つからない旨のエラーが出るので  
 あらかじめ、指定する NIC を調べておく必要がある
 
-```sh
+```shell
 # エラーの例
 ERROR: Could not obtain interface IP address and netmask
 ERROR: pcap_lookupnet: en0: no IPv4 address assigned
@@ -38,11 +37,9 @@ ERROR: pcap_lookupnet: en0: no IPv4 address assigned
 
 `ifconfig` で調べる
 
-```sh
-ifconfig
-```
+```shell
+$ ifconfig
 
-```
 # status active のものをメモする
 en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
 	options=400<CHANNEL_IO>
@@ -59,12 +56,11 @@ en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
 
 ## ネットワークインターフェイスを指定して調べる
 
-```sh
+```shell
 # l: local only
 # I: network interface を指定
-sudo arp-scan -l -I en0
-```
-```
+$ sudo arp-scan -l -I en0
+
 Interface: en0, datalink type: EN10MB (Ethernet)
 Starting arp-scan 1.9 with 256 hosts (http://www.nta-monitor.com/tools/arp-scan/)
 192.168.10.1	80:22:a7:b8:f4:96	(Unknown)
