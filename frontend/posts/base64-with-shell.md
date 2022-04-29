@@ -1,0 +1,28 @@
+---
+title: "macのターミナルで画像をbase64エンコードする"
+date: "2017-12-02"
+categories: 
+  - "macos"
+  - "shell"
+---
+
+```
+base64 sample.png
+
+# エンコードされた文字列が出力される
+iVBORw0KGgoAAAANSUhEUgAAAAQAAAAEAQMAAACTPww9AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///6qqquPGFV0AAAAMSURBVAjXYzjAAIYADAgDAW9NjdcAAAAASUVORK5CYII=
+```
+
+cssから利用する例
+
+```
+.class { 
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAEAQMAAACTPww9AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///6qqquPGFV0AAAAMSURBVAjXYzjAAIYADAgDAW9NjdcAAAAASUVORK5CYII=);
+}
+```
+
+htmlから利用する例
+
+```
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAEAQMAAACTPww9AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///6qqquPGFV0AAAAMSURBVAjXYzjAAIYADAgDAW9NjdcAAAAASUVORK5CYII=" alt="" />
+```
