@@ -4,7 +4,12 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import Link from 'next/link'
+import styled from 'styled-components'
 
+const BackToHome = styled.div`
+  margin: 3rem 0 0;
+`
 export default function Post({
   postData
 }: {
@@ -26,6 +31,11 @@ export default function Post({
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
+      <BackToHome>
+        <Link href="/">
+          <a>← Back to home</a>
+        </Link>
+      </BackToHome>
     </Layout>
   )
 }
