@@ -2,8 +2,22 @@ import Layout from '../../components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 import Head from 'next/head'
 import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import Link from 'next/link'
+import styled from 'styled-components'
+import { LightText } from '../../components/util'
+
+const BackToHome = styled.div`
+  margin: 3rem 0 0;
+`
+
+const ArticleHeader = styled.h1`
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 1rem 0;
+`
 
 export default function Post({
   postData
@@ -20,12 +34,17 @@ export default function Post({
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <ArticleHeader>{postData.title}</ArticleHeader>
+        <LightText>
           <Date dateString={postData.date} />
-        </div>
+        </LightText>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
+      <BackToHome>
+        <Link href="/">
+          <a>← Back to home</a>
+        </Link>
+      </BackToHome>
     </Layout>
   )
 }

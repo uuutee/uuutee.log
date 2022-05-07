@@ -1,9 +1,18 @@
 import Head from 'next/head'
-import styles from './layout.module.css'
-import Link from 'next/link'
 import Header from './header'
+import styled from 'styled-components'
 
 export const siteTitle = 'Next.js Sample Website'
+
+const Container = styled.div`
+  `
+
+const Content = styled.main`
+    max-width: 36rem;
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+    background-color: #fff;
+  `
 
 export default function Layout({
   children,
@@ -13,7 +22,7 @@ export default function Layout({
   home?: boolean
 }) {
   return (
-    <div className={styles.container}>
+    <Container>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -30,14 +39,7 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
-      <main className={styles.content}>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
-    </div>
+      <Content>{children}</Content>
+    </Container>
   )
 }
