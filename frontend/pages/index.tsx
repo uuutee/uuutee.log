@@ -23,26 +23,9 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section
-        css={css`
-          font-size: 1.2rem;
-          line-height: 1.5;
-        `}
-      >
-        <h2
-          css={css`
-            font-size: 1.5rem;
-            line-height: 1.4;
-            margin: 1rem 0;
-        `}>
-          Blog</h2>
-        <ul
-          css={css`
-            list-style: none;
-            padding: 0;
-            margin: 0;
-          `}
-        >
+      <section css={blogSectionStyle}>
+        <h2 css={blogHeaderStyle}>Blog</h2>
+        <ul css={blogListStyle}>
           {allPostsData.map(({ id, date, title }) => (
             <li
               key={id}
@@ -71,3 +54,20 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   }
 }
+
+const blogSectionStyle = css`
+  font-size: 1.2rem;
+  line-height: 1.5;
+`
+
+const blogHeaderStyle = css`
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+`
+
+const blogListStyle = css`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`

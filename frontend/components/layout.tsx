@@ -29,13 +29,14 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
-      <main
-        css={css`
-          max-width: 36rem;
-          padding: 0 1rem;
-          margin: 3rem auto 6rem;
-          background-color: #fff;
-      `}>{children}</main>
+      <main css={mainStyle}>{children}</main>
     </div>
   )
 }
+
+const mainStyle = css`
+    max-width: 36rem;
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+    background-color: #fff;
+`

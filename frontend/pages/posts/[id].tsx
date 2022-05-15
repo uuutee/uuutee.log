@@ -22,25 +22,13 @@ export default function Post({
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1
-          css={css`
-            font-size: 2rem;
-            line-height: 1.3;
-            font-weight: 800;
-            letter-spacing: -0.05rem;
-            margin: 1rem 0;
-          `}
-        >{postData.title}</h1>
+        <h1 css={articleHeaderStyle}>{postData.title}</h1>
         <LightText>
           <Date dateString={postData.date} />
         </LightText>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
-      <div
-        css={css`
-          margin: 3rem 0 0;
-        `}
-      >
+      <div css={css`margin: 3rem 0 0;`}>
         <Link href="/">
           <a>← Back to home</a>
         </Link>
@@ -65,3 +53,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
   }
 }
+
+const articleHeaderStyle = css`
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 1rem 0;
+`
