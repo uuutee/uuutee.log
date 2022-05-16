@@ -1,18 +1,8 @@
 import Head from 'next/head'
 import Header from './header'
-import styled from 'styled-components'
+import { css } from '@emotion/react'
 
 export const siteTitle = 'Next.js Sample Website'
-
-const Container = styled.div`
-  `
-
-const Content = styled.main`
-    max-width: 36rem;
-    padding: 0 1rem;
-    margin: 3rem auto 6rem;
-    background-color: #fff;
-  `
 
 export default function Layout({
   children,
@@ -22,7 +12,7 @@ export default function Layout({
   home?: boolean
 }) {
   return (
-    <Container>
+    <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -39,7 +29,14 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
-      <Content>{children}</Content>
-    </Container>
+      <main css={mainStyle}>{children}</main>
+    </div>
   )
 }
+
+const mainStyle = css`
+    max-width: 36rem;
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+    background-color: #fff;
+`

@@ -6,7 +6,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@types/styled-components": "^5.1.25",
+    "@emotion/babel-plugin": "^11.9.2",
+    "@emotion/react": "^11.9.0",
     "date-fns": "^2.11.1",
     "gray-matter": "^4.0.2",
     "highlight.js": "^11.5.1",
@@ -19,7 +20,6 @@
     "remark-html": "^15.0.0",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
-    "styled-components": "^5.3.5",
     "unified": "^10.1.2"
   },
   "devDependencies": {

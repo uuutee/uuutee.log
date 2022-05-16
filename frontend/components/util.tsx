@@ -1,5 +1,7 @@
-import styled from 'styled-components'
+import { css } from '@emotion/react'
 
-export const LightText = styled.span`
-  color: #666;
-`
+export const LightText = ({children}: {
+  children: React.ReactNode
+}) => {
+  return <span css={css`color: #666;`}>{children}</span>
+}
