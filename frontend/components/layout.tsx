@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from './header'
 import { css } from '@emotion/react'
+import {MainImage} from './mainImage'
 
 export const siteTitle = 'Next.js Sample Website'
 
@@ -29,6 +30,7 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <Header />
+      <MainImage />
       <main css={mainStyle}>{children}</main>
     </div>
   )
