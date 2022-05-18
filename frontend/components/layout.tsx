@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Header from './header'
 import { css } from '@emotion/react'
 import {MainImage} from './mainImage'
+import { Footer } from './footer'
 
 export const siteTitle = 'Next.js Sample Website'
 
@@ -32,6 +33,7 @@ export default function Layout({
       <Header />
       <MainImage />
       <main css={mainStyle}>{children}</main>
+      <Footer />
     </div>
   )
 }
