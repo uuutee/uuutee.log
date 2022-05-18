@@ -1,4 +1,6 @@
 import { css } from '@emotion/react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 export const MainImage = () => {
   return <div css={containerStyle}>
@@ -6,7 +8,9 @@ export const MainImage = () => {
       <h1 css={titleStyle}>uuutee.log()</h1>
       <h2 css={subtitleStyle}>web開発でハマったことや試したことをメモしていきます</h2>
       <div css={linksStyle}>
-
+        <a href="https://github.com/uuutee" target={'_blank'} css={linkStyle}><FontAwesomeIcon icon={brands('github')} /></a>
+        <a href="https://twitter.com/uuutee" target={'_blank'} css={linkStyle}><FontAwesomeIcon icon={brands('twitter')} /></a>
+        <a href="/" target={'_blank'} css={linkStyle}><FontAwesomeIcon icon={solid('rss')} /></a>
       </div>
     </div>
   </div>
@@ -50,8 +54,20 @@ const subtitleStyle = css`
 `
 
 const linksStyle = css`
+  display: flex;
   text-align: center;
-  color: #ccc;
-  font-size: 2rem;
   z-index: 10;
+`
+
+const linkStyle = css`
+  margin: 0 4px;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  &:hover {
+    color: #ccc;
+  }
 `
