@@ -8,6 +8,9 @@
   "dependencies": {
     "@emotion/babel-plugin": "^11.9.2",
     "@emotion/react": "^11.9.0",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "date-fns": "^2.11.1",
     "gray-matter": "^4.0.2",
     "highlight.js": "^11.5.1",
