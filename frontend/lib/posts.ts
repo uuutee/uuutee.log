@@ -73,3 +73,19 @@ export async function getPostData(id: string) {
     ...(matterResult.data as { date: string; title: string })
   }
 }
+
+// 年別アーカイブ表示用
+// [{ id: '2017', text: '2017', count: 22 }...]
+export const getAllYears = () => {
+  const allDates = getSortedPostsData().map(v => v.date)
+  return allDates
+    .map(v => v.split('-')[0])
+    .filter((e, i, a) => a.indexOf(e) === i)　// [2005, 2006, 2007, ... 2016]
+    .map((year) => {
+      return {
+        id: year,
+        text: year,
+        count: allDates.filter(v => v.match(new RegExp(`^${year}`))).length
+      }
+    })
+}
