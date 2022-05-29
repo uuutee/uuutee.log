@@ -26,4 +26,7 @@ const listStyle = css`
 const linkStyle = css`
   color: #fff;
   cursor: pointer;
+  &:hover {
+    color: #ccc;
+  }
 `
