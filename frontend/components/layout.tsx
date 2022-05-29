@@ -39,8 +39,8 @@ export default function Layout({
 }
 
 const mainStyle = css`
-    max-width: 36rem;
-    padding: 0 1rem;
-    margin: 3rem auto 6rem;
-    background-color: #fff;
+  max-width: 540px;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+  background-color: #fff;
 `
