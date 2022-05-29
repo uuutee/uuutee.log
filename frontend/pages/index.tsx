@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
-import { getSortedPostsData } from '../lib/posts'
+import {getAllYears, getSortedPostsData} from '../lib/posts'
 import { GetStaticProps } from 'next'
 import { css } from '@emotion/react'
 import {BlogList} from '../components/blogList'
+import React from 'react'
 
 type Post = {
     date: string
@@ -11,29 +12,43 @@ type Post = {
     id: string
 }
 
+type Year = {
+  id: string
+  text: string
+  count: number
+}
+
+export const YearContext = React.createContext([])
+
 export default function Home({
-  allPostsData
+  allPostsData,
+  allYears
 }: {
-  allPostsData: Post[]
+  allPostsData: Post[],
+  allYears: Year[]
 }) {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section css={blogSectionStyle}>
-        <h2 css={blogHeaderStyle}>Blog</h2>
-        <BlogList posts={allPostsData} />
-      </section>
-    </Layout>
+    <YearContext.Provider value={allYears}>
+      <Layout home>
+        <Head>
+          <title>{siteTitle}</title>
+        </Head>
+        <section css={blogSectionStyle}>
+          <h2 css={blogHeaderStyle}>Blog</h2>
+          <BlogList posts={allPostsData} />
+        </section>
+      </Layout>
+    </YearContext.Provider>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()
+  const allYears = getAllYears()
   return {
     props: {
-      allPostsData
+      allPostsData: allPostsData,
+      allYears: allYears
     }
   }
 }

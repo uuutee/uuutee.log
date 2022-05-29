@@ -1,7 +1,13 @@
 import { css } from '@emotion/react'
+import { YearlyList } from './yearlyList'
+import React from 'react'
+import { YearContext } from '../pages'
 
 export const Footer = () => {
+  const years = React.useContext(YearContext)
+
   return <footer css={containerStyle}>
+    <YearlyList years={years} />
     <div css={copyrightStyle}>© 2022 uuutee All Rights Reserved.</div>
   </footer>
 }
