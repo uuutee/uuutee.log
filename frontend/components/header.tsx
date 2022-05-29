@@ -1,9 +1,10 @@
 import { css } from '@emotion/react'
+import Link from 'next/link'
 
 export const Header = () => {
   return <header css={containerStyle}>
     <div css={innerStyle}>
-      <h1 css={titleStyle}>uuutee.log()</h1>
+      <h1 css={titleStyle}><Link href={'/'}><a css={linkStyle}>uuutee.log()</a></Link></h1>
       <h2 css={subtitleStyle}>すぐ忘れるのでメモ</h2>
     </div>
   </header>
@@ -29,6 +30,15 @@ const titleStyle = css`
   letter-spacing: -2px;
   word-break: break-word;
   color: #fff;
+`
+
+const linkStyle = css`
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: #ccc;
+  }
 `
 
 const subtitleStyle = css`
