@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { YearlyList } from './yearlyList'
 import React from 'react'
-import { YearContext } from '../pages'
+import { YearContext } from '../lib/contexts'
 
 export const Footer = () => {
   const years = React.useContext(YearContext)

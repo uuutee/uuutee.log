@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next'
 import { css } from '@emotion/react'
 import {BlogList} from '../components/blogList'
 import React from 'react'
+import { YearContext } from '../lib/contexts'
 
 type Post = {
     date: string
@@ -17,8 +18,6 @@ type Year = {
   text: string
   count: number
 }
-
-export const YearContext = React.createContext([])
 
 export default function Home({
   allPostsData,
