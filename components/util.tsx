@@ -1,6 +1,9 @@
 import { css } from '@emotion/react'
+import { FC, ReactNode } from 'react'
 
-export const LightText = ({ children }: { children: React.ReactNode }) => {
+type Props = { children: ReactNode }
+
+export const LightText: FC<Props> = ({ children }: Props) => {
   return (
     <span
       css={css`

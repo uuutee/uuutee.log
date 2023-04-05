@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
 import Link from 'next/link'
+import { FC } from 'react'
 
-export const Header = () => {
+export const Header: FC = () => {
   return (
     <header css={containerStyle}>
       <div css={innerStyle}>

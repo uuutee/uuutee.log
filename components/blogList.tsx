@@ -1,9 +1,19 @@
 import { css } from '@emotion/react'
 import Link from 'next/link'
+import { FC } from 'react'
 import Date from './date'
 import { LightText } from './util'
 
-export const BlogList = ({ posts }) => {
+type Post = {
+  id: number
+  title: string
+  date: string
+  contentHtml: string
+}
+
+type Props = { posts: Array<Post> }
+
+export const BlogList: FC<Props> = ({ posts }: Props) => {
   return (
     <ul css={blogListStyle}>
       {posts.length > 0 &&

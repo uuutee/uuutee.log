@@ -2,16 +2,16 @@ import Head from 'next/head'
 import { Header } from './header'
 import { css } from '@emotion/react'
 import { Footer } from './footer'
+import { FC, ReactNode } from 'react'
 
 export const siteTitle = 'Next.js Sample Website'
 
-export default function Layout({
-  children,
-  home,
-}: {
-  children: React.ReactNode
+type Props = {
+  children: ReactNode
   home?: boolean
-}) {
+}
+
+const Layout: FC<Props> = ({ children, home }: Props) => {
   return (
     <div>
       <Head>
@@ -42,3 +42,5 @@ const mainStyle = css`
   margin: 3rem auto 6rem;
   background-color: #fff;
 `
+
+export default Layout
