@@ -5,8 +5,15 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { useRouter } from 'next/router'
 import { BlogList } from '../components/blogList'
 import { YearContext } from '../lib/contexts'
+import { Post, Year } from './types'
+import { FC } from 'react'
 
-export default function YearlyPosts({ allPosts, allYears }) {
+type Props = {
+  allPosts: Array<Post>
+  allYears: Array<Year>
+}
+
+const YearlyPosts: FC<Props> = ({ allPosts, allYears }: Props) => {
   const router = useRouter()
   return (
     <YearContext.Provider value={allYears}>
@@ -49,3 +56,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   }
 }
+
+export default YearlyPosts

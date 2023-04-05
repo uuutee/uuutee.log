@@ -4,28 +4,16 @@ import { getAllYears, getSortedPostsData } from '../lib/posts'
 import { GetStaticProps } from 'next'
 import { css } from '@emotion/react'
 import { BlogList } from '../components/blogList'
-import React from 'react'
+import React, { FC } from 'react'
 import { YearContext } from '../lib/contexts'
+import { Post, Year } from './types'
 
-type Post = {
-  date: string
-  title: string
-  id: string
+type Props = {
+  allPosts: Array<Post>
+  allYears: Array<Year>
 }
 
-type Year = {
-  id: string
-  text: string
-  count: number
-}
-
-export default function Home({
-  allPostsData,
-  allYears,
-}: {
-  allPostsData: Post[]
-  allYears: Year[]
-}) {
+const Home: FC<Props> = ({ allPosts, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
       <Layout home>
@@ -34,7 +22,7 @@ export default function Home({
         </Head>
         <section css={blogSectionStyle}>
           <h2 css={blogHeaderStyle}>Blog</h2>
-          <BlogList posts={allPostsData} />
+          <BlogList posts={allPosts} />
         </section>
       </Layout>
     </YearContext.Provider>
@@ -42,11 +30,11 @@ export default function Home({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData()
+  const allPosts = getSortedPostsData()
   const allYears = getAllYears()
   return {
     props: {
-      allPostsData: allPostsData,
+      allPosts: allPosts,
       allYears: allYears,
     },
   }
@@ -62,3 +50,5 @@ const blogHeaderStyle = css`
   line-height: 1.4;
   margin: 1rem 0;
 `
+
+export default Home

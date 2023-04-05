@@ -5,8 +5,15 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { useRouter } from 'next/router'
 import { BlogList } from '../../components/blogList'
 import { TagContext } from '../../lib/contexts'
+import { Post, Tag } from '../types'
+import { FC } from 'react'
 
-export default function TagPosts({ allPosts, allTags }) {
+type Props = {
+  allPosts: Array<Post>
+  allTags: Array<Tag>
+}
+
+const TagPosts: FC<Props> = ({ allPosts, allTags }: Props) => {
   const router = useRouter()
 
   return (
@@ -44,3 +51,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   }
 }
+
+export default TagPosts

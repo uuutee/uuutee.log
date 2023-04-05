@@ -1,7 +1,10 @@
 import '../styles/global.css'
 import 'highlight.js/styles/default.css'
 import { AppProps } from 'next/app'
+import { FC } from 'react'
 
-export default function App({ Component, pageProps }: AppProps) {
+const App: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return <Component {...pageProps} />
 }
+
+export default App

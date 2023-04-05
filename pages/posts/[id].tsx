@@ -7,22 +7,15 @@ import Link from 'next/link'
 import { LightText } from '../../components/util'
 import { css } from '@emotion/react'
 import { YearContext } from '../../lib/contexts'
+import { FC } from 'react'
+import { Post, Year } from '../types'
 
-export default function Post({
-  postData,
-  allYears,
-}: {
-  postData: {
-    title: string
-    date: string
-    contentHtml: string
-  }
-  allYears: {
-    id: string
-    text: string
-    count: number
-  }[]
-}) {
+type Props = {
+  postData: Post
+  allYears: Array<Year>
+}
+
+const Post: FC<Props> = ({ postData, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
       <Layout>
@@ -75,3 +68,5 @@ const articleHeaderStyle = css`
   letter-spacing: -0.05rem;
   margin: 1rem 0;
 `
+
+export default Post
