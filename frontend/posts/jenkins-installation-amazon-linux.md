@@ -1,7 +1,7 @@
 ---
 title: "EC2 (Amazon Linux)にjenkinsをインストールする手順"
 date: "2017-08-01"
-categories: 
+tags: 
   - "aws"
   - "linux"
 ---

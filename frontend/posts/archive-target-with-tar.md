@@ -1,7 +1,7 @@
 ---
 title: "tarコマンドでパスを含めずにアーカイブする"
 date: "2017-05-26"
-categories: 
+tags: 
   - "shell"
 ---
 

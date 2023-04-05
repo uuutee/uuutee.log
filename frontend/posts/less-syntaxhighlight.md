@@ -1,7 +1,7 @@
 ---
 title: "less でシンタックスハイライトする"
 date: "2017-03-29"
-categories: 
+tags: 
   - "shell"
 ---
 

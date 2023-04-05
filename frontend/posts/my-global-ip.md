@@ -1,7 +1,7 @@
 ---
 title: "shellで自分のグローバルIPを確認する"
 date: "2016-09-06"
-categories: 
+tags: 
   - "linux"
   - "shell"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "macのターミナルで安全なパスワードを生成する"
 date: "2017-01-06"
-categories: 
+tags: 
   - "macos"
 ---
 

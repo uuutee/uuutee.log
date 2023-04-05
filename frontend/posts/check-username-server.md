@@ -1,7 +1,7 @@
 ---
 title: "サーバでPHPやPerlを実行しているユーザ名を調べる"
 date: "2015-11-02"
-categories: 
+tags: 
   - "perl"
   - "php"
 ---

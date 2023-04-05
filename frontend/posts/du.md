@@ -1,7 +1,7 @@
 ---
 title: "duでディレクトリの容量を調べる"
 date: "2015-11-02"
-categories: 
+tags: 
   - "shell"
 ---
 

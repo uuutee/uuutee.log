@@ -1,7 +1,7 @@
 ---
 title: "nkfで文字コードを調べて一括で変換する"
 date: "2014-04-15"
-categories: 
+tags: 
   - "shell"
 ---
 

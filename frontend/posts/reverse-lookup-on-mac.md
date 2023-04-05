@@ -1,7 +1,7 @@
 ---
 title: "macのターミナルでグローバルIPからhost名を逆引きする（正引きも）"
 date: "2017-10-18"
-categories: 
+tags: 
   - "macos"
   - "shell"
 ---

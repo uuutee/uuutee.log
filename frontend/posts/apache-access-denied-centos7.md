@@ -1,7 +1,7 @@
 ---
 title: "CentOS7でユーザディレクトリへのApacheのアクセスが拒否される"
 date: "2017-09-25"
-categories: 
+tags: 
   - "centos"
   - "linux"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Ansibleを使ってみる"
 date: "2017-02-09"
-categories: 
+tags: 
   - "ansible"
 ---
 

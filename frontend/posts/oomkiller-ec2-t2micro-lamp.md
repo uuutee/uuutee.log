@@ -1,7 +1,7 @@
 ---
 title: "EC2に立てたWordPress (Apache+MySQL)が落ちる"
 date: "2017-07-07"
-categories: 
+tags: 
   - "aws"
   - "linux"
 ---

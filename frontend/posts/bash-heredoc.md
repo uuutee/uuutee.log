@@ -1,7 +1,7 @@
 ---
 title: "bashで複数行のテキスト（ヒアドキュメント）を入力する"
 date: "2017-01-20"
-categories: 
+tags: 
   - "shell"
 ---
 

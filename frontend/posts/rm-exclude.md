@@ -1,7 +1,7 @@
 ---
 title: "rmで指定ファイルを除外して削除する"
 date: "2017-03-06"
-categories: 
+tags: 
   - "shell"
 ---
 

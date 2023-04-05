@@ -1,7 +1,7 @@
 ---
 title: "macのターミナルでpng画像を一括で圧縮する"
 date: "2016-05-18"
-categories: 
+tags: 
   - "macos"
   - "shell"
 ---

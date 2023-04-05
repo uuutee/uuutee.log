@@ -1,7 +1,7 @@
 ---
 title: "Linux や mac で You have new mail in ... と表示される"
 date: "2016-11-21"
-categories: 
+tags: 
   - "linux"
 ---
 

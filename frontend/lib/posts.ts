@@ -26,7 +26,7 @@ export function getSortedPostsData() {
     // Combine the data with the id
     return {
       id,
-      ...(matterResult.data as { date: string; title: string })
+      ...(matterResult.data as { date: string; title: string, tags: string[] })
     }
   })
   // Sort posts by date
@@ -59,11 +59,11 @@ export async function getPostData(id: string) {
 
   // Use remark to convert markdown into HTML string
   const processedContent = await unified()
-      .use(remarkParse)
-      .use(remarkRehype)
-      .use(rehypeHighlight)
-      .use(rehypeStringify)
-      .process(matterResult.content)
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypeHighlight)
+    .use(rehypeStringify)
+    .process(matterResult.content)
   const contentHtml = processedContent.toString()
 
   // Combine the data with the id and contentHtml
@@ -86,6 +86,31 @@ export const getAllYears = () => {
         id: year,
         text: year,
         count: allDates.filter(v => v.match(new RegExp(`^${year}`))).length
+      }
+    })
+}
+
+// タグアーカイブ表示用
+export const getAllTags = () => {
+  const allTags = getSortedPostsData().map(v => v.tags)
+  return allTags
+    .flat()
+    .filter((e, i, a) => a.indexOf(e) === i)
+    .sort((a, b) => {
+      a = a.toLowerCase()
+      b = b.toLowerCase()
+      if (a > b) {
+        return 1
+      } else if (a < b) {
+        return -1
+      }
+      return 0
+    })
+    .map(tag => {
+      return {
+        id: tag.toLowerCase(),
+        text: tag,
+        count: allTags.filter(v => v.indexOf(tag) > -1).length,
       }
     })
 }

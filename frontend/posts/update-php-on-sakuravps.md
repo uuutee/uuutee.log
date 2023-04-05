@@ -1,7 +1,7 @@
 ---
 title: "さくらVPSのPHPを 5.3 から 5.6 にアップデートする"
 date: "2016-06-25"
-categories: 
+tags: 
   - "さくらのvps"
   - "linux"
   - "php"

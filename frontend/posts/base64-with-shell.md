@@ -1,7 +1,7 @@
 ---
 title: "macのターミナルで画像をbase64エンコードする"
 date: "2017-12-02"
-categories: 
+tags: 
   - "macos"
   - "shell"
 ---

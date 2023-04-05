@@ -1,7 +1,7 @@
 ---
 title: "macやlinuxで使用中のポートとそのプロセスを調べる"
 date: "2017-09-23"
-categories: 
+tags: 
   - "linux"
   - "macos"
   - "shell"

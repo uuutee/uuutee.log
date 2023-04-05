@@ -1,7 +1,7 @@
 ---
 title: "nmapでサーバのポートや起動中のサービスを調べる"
 date: "2014-06-28"
-categories: 
+tags: 
   - "shell"
   - "security"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "ターミナル(bash)で履歴を検索する"
 date: "2014-07-22"
-categories: 
+tags: 
   - "macos"
   - "shell"
 ---

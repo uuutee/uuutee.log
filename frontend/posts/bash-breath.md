@@ -1,7 +1,7 @@
 ---
 title: "bashで引数に連番や複数のファイル名を指定する方法"
 date: "2017-11-30"
-categories: 
+tags: 
   - "shell"
 ---
 
