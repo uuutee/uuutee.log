@@ -1,7 +1,7 @@
 ---
 title: "diffコマンドに色をつけてみやすくしたい"
 date: "2017-07-18"
-categories: 
+tags: 
   - "shell"
 ---
 

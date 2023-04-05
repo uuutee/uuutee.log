@@ -1,7 +1,7 @@
 ---
 title: 'macでLAN上のデバイスのIPを調べる'
 date: '2018-01-24'
-categories:
+tags:
   - macOS
   - shell
 ---

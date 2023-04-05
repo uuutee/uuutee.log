@@ -1,7 +1,7 @@
 ---
 title: "Ansibleでテキスト置換を行ういくつかの方法"
 date: "2017-10-23"
-categories: 
+tags: 
   - "ansible"
 ---
 

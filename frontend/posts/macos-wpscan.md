@@ -1,7 +1,7 @@
 ---
 title: "macOSでWPScanを使ってWordPressの脆弱性診断をやってみる"
 date: "2017-07-04"
-categories: 
+tags: 
   - "security"
   - "wordpress"
 ---

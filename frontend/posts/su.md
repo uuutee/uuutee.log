@@ -1,7 +1,7 @@
 ---
 title: "su と su - の違い"
 date: "2017-07-08"
-categories: 
+tags: 
   - "linux"
   - "shell"
 ---

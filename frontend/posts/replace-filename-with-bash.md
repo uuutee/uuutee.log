@@ -1,7 +1,7 @@
 ---
 title: "ターミナル(bash)でファイル名を一括置換するスクリプト"
 date: "2013-11-14"
-categories: 
+tags: 
   - "shell"
 ---
 

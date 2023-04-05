@@ -1,7 +1,7 @@
 ---
 title: "macのターミナルで flac を一括で mp3 に変換する"
 date: "2017-09-11"
-categories: 
+tags: 
   - "macos"
   - "shell"
 ---

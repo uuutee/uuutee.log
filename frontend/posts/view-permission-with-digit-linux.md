@@ -1,7 +1,7 @@
 ---
 title: "Linuxでパーミッションを数値で表示する"
 date: "2016-05-18"
-categories: 
+tags: 
   - "linux"
   - "shell"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "shellでワイルドカードを指定した際にドットファイルを含めて処理したい"
 date: "2016-09-06"
-categories: 
+tags: 
   - "linux"
   - "shell"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "macのターミナルでパスワード付きzipを作成する"
 date: "2016-09-07"
-categories: 
+tags: 
   - "macos"
   - "shell"
 ---

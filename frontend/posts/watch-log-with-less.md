@@ -1,7 +1,7 @@
 ---
 title: "lessでログを後ろから表示したり監視したりする"
 date: "2015-10-05"
-categories: 
+tags: 
   - "shell"
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Linuxのユーザー一覧を確認する"
 date: "2016-03-06"
-categories: 
+tags: 
   - "linux"
   - "shell"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "mac で md5sum コマンドを使いたい"
 date: "2017-08-01"
-categories: 
+tags: 
   - "macos"
   - "shell"
 ---

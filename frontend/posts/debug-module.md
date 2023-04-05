@@ -1,7 +1,7 @@
 ---
 title: "debugモジュール"
 date: "2017-10-23"
-categories: 
+tags: 
   - "ansible"
 ---
 
