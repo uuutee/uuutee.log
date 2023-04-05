@@ -13,22 +13,6 @@ type Props = {
   allTags: Array<Tag>
 }
 
-const TagPosts: FC<Props> = ({ allPosts, allTags }: Props) => {
-  const router = useRouter()
-
-  return (
-    <TagContext.Provider value={allTags}>
-      <Layout>
-        <Head>
-          <title>{router.query.tag}</title>
-        </Head>
-        <h1>{router.query.tag}</h1>
-        <BlogList posts={allPosts} />
-      </Layout>
-    </TagContext.Provider>
-  )
-}
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = getAllTags()
   return {
@@ -50,6 +34,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       allTags: getAllTags(),
     },
   }
+}
+
+const TagPosts: FC<Props> = ({ allPosts, allTags }: Props) => {
+  const router = useRouter()
+
+  return (
+    <TagContext.Provider value={allTags}>
+      <Layout>
+        <Head>
+          <title>{router.query.tag}</title>
+        </Head>
+        <h1>{router.query.tag}</h1>
+        <BlogList posts={allPosts} />
+      </Layout>
+    </TagContext.Provider>
+  )
 }
 
 export default TagPosts

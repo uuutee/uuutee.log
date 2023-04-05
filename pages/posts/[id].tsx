@@ -15,7 +15,25 @@ type Props = {
   allYears: Array<Year>
 }
 
-const Post: FC<Props> = ({ postData, allYears }: Props) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getAllPostIds()
+  return {
+    paths,
+    fallback: false,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const postData = await getPostData(params.id as string)
+  return {
+    props: {
+      postData: postData,
+      allYears: getAllYears(),
+    },
+  }
+}
+
+const IdPost: FC<Props> = ({ postData, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
       <Layout>
@@ -43,24 +61,6 @@ const Post: FC<Props> = ({ postData, allYears }: Props) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
-  return {
-    paths,
-    fallback: false,
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
-  return {
-    props: {
-      postData: postData,
-      allYears: getAllYears(),
-    },
-  }
-}
-
 const articleHeaderStyle = css`
   font-size: 2rem;
   line-height: 1.3;
@@ -69,4 +69,4 @@ const articleHeaderStyle = css`
   margin: 1rem 0;
 `
 
-export default Post
+export default IdPost

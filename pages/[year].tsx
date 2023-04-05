@@ -13,21 +13,6 @@ type Props = {
   allYears: Array<Year>
 }
 
-const YearlyPosts: FC<Props> = ({ allPosts, allYears }: Props) => {
-  const router = useRouter()
-  return (
-    <YearContext.Provider value={allYears}>
-      <Layout>
-        <Head>
-          <title>{router.query.year}</title>
-        </Head>
-        <h1>{router.query.year}</h1>
-        <BlogList posts={allPosts} />
-      </Layout>
-    </YearContext.Provider>
-  )
-}
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const years = getAllYears()
   return {
@@ -55,6 +40,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       allYears: getAllYears(),
     },
   }
+}
+
+const YearlyPosts: FC<Props> = ({ allPosts, allYears }: Props) => {
+  const router = useRouter()
+  return (
+    <YearContext.Provider value={allYears}>
+      <Layout>
+        <Head>
+          <title>{router.query.year}</title>
+        </Head>
+        <h1>{router.query.year}</h1>
+        <BlogList posts={allPosts} />
+      </Layout>
+    </YearContext.Provider>
+  )
 }
 
 export default YearlyPosts
