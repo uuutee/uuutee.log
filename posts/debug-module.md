@@ -1,16 +1,16 @@
 ---
-title: "debugモジュール"
-date: "2017-10-23"
-tags: 
-  - "ansible"
+title: 'debugモジュール'
+date: '2017-10-23'
+tags:
+  - 'ansible'
 ---
 
 ```
 # テキストを出力
-- debug: 
+- debug:
     msg: hello
 
 # 変数を出力
-- debug: 
+- debug:
     var: hoge
 ```

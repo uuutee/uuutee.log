@@ -10,13 +10,13 @@ import { YearContext } from '../../lib/contexts'
 
 export default function Post({
   postData,
-  allYears
+  allYears,
 }: {
   postData: {
     title: string
     date: string
     contentHtml: string
-  },
+  }
   allYears: {
     id: string
     text: string
@@ -36,7 +36,11 @@ export default function Post({
           </LightText>
           <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </article>
-        <div css={css`margin: 3rem 0 0;`}>
+        <div
+          css={css`
+            margin: 3rem 0 0;
+          `}
+        >
           <Link href="/">
             <a>← Back to home</a>
           </Link>
@@ -50,7 +54,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds()
   return {
     paths,
-    fallback: false
+    fallback: false,
   }
 }
 
@@ -59,8 +63,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       postData: postData,
-      allYears: getAllYears()
-    }
+      allYears: getAllYears(),
+    },
   }
 }
 

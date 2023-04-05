@@ -3,7 +3,7 @@ import { getSortedPostsData, getAllTags } from '../../lib/posts'
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { useRouter } from 'next/router'
-import {BlogList} from '../../components/blogList'
+import { BlogList } from '../../components/blogList'
 import { TagContext } from '../../lib/contexts'
 
 export default function TagPosts({ allPosts, allTags }) {
@@ -25,18 +25,18 @@ export default function TagPosts({ allPosts, allTags }) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = getAllTags()
   return {
-    paths: tags.map(tag => {
+    paths: tags.map((tag) => {
       return {
         params: {
-          tag: tag.id
-        }
+          tag: tag.id,
+        },
       }
     }),
-    fallback: false
+    fallback: false,
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       allPosts: getSortedPostsData(),

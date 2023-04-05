@@ -8,22 +8,38 @@ import { brands, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 export const Footer = () => {
   const years = React.useContext(YearContext)
 
-  return <footer css={footerStyle}>
-    <div css={footerInnerStyle}>
-      <section>
-        <h2 css={sectionTitleStyle}>年度別記事</h2>
-        <YearlyList years={years} />
-      </section>
-      <section>
-        <div css={linksStyle}>
-          <a href="https://github.com/uuutee" target={'_blank'} css={linkStyle}><FontAwesomeIcon icon={brands('github')} /></a>
-          <a href="https://twitter.com/uuutee" target={'_blank'} css={linkStyle}><FontAwesomeIcon icon={brands('twitter')} /></a>
-          <a href="/" target={'_blank'} css={linkStyle}><FontAwesomeIcon icon={solid('rss')} /></a>
-        </div>
-      </section>
-      <div css={copyrightStyle}>© 2022 uuutee All Rights Reserved.</div>
-    </div>
-  </footer>
+  return (
+    <footer css={footerStyle}>
+      <div css={footerInnerStyle}>
+        <section>
+          <h2 css={sectionTitleStyle}>年度別記事</h2>
+          <YearlyList years={years} />
+        </section>
+        <section>
+          <div css={linksStyle}>
+            <a
+              href="https://github.com/uuutee"
+              target={'_blank'}
+              css={linkStyle}
+            >
+              <FontAwesomeIcon icon={brands('github')} />
+            </a>
+            <a
+              href="https://twitter.com/uuutee"
+              target={'_blank'}
+              css={linkStyle}
+            >
+              <FontAwesomeIcon icon={brands('twitter')} />
+            </a>
+            <a href="/" target={'_blank'} css={linkStyle}>
+              <FontAwesomeIcon icon={solid('rss')} />
+            </a>
+          </div>
+        </section>
+        <div css={copyrightStyle}>© 2022 uuutee All Rights Reserved.</div>
+      </div>
+    </footer>
+  )
 }
 
 const footerStyle = css`
@@ -68,7 +84,7 @@ const linkStyle = css`
 `
 
 const copyrightStyle = css`
-  font-size: .75rem;
+  font-size: 0.75rem;
   text-align: center;
   color: #999;
   line-height: 1.2rem;

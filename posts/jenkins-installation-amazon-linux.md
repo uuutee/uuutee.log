@@ -1,12 +1,12 @@
 ---
-title: "EC2 (Amazon Linux)にjenkinsをインストールする手順"
-date: "2017-08-01"
-tags: 
-  - "aws"
-  - "linux"
+title: 'EC2 (Amazon Linux)にjenkinsをインストールする手順'
+date: '2017-08-01'
+tags:
+  - 'aws'
+  - 'linux'
 ---
 
-## jenkinsをインストール
+## jenkins をインストール
 
 ```
 # レポジトリを追加
@@ -31,11 +31,11 @@ service jenkins start
 cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-http://ec2-host:8080/ にアクセスするとjenkinsの初期設定画面が表示される。
+http://ec2-host:8080/ にアクセスすると jenkins の初期設定画面が表示される。
 
-### javaのバージョン変更
+### java のバージョン変更
 
-EC2内のjavaバージョンがjenkinsの要求バージョンとマッチしない場合、javaのバージョンを 1.8に変更する
+EC2 内の java バージョンが jenkins の要求バージョンとマッチしない場合、java のバージョンを 1.8 に変更する
 
 ```
 # 現在のバージョンを確認
@@ -53,8 +53,8 @@ java -version
 
 ## 参考
 
-- [CentOS7.0にJenkinsをインストールする - Qiita](http://qiita.com/inakadegaebal/items/b526ffbdbe7ff2b443f1)
-- [AWSのEC2インスタンス（Amazon Linux）にJenkinsをインストールする - Qiita](http://qiita.com/thirota/items/1242767e40f233c65f7f)
-- [20121019-jenkins-akiko\_pusu.pdf](https://www.slideshare.net/akiko_pusu/ss-14797776?ref=http://forza.cocolog-nifty.com/blog/2012/10/jenkins-73f2.html)
-- [JenkinsでGitHubのプッシュ時に自動デプロイする - sometimes I laugh](http://sil.hatenablog.com/entry/jenkins-github-auto-deploy)
-- [Jenkinsの自動デプロイにAnsibleを使ってみた - sometimes I laugh](http://sil.hatenablog.com/entry/jenkins-ansible-deploy)
+- [CentOS7.0 に Jenkins をインストールする - Qiita](http://qiita.com/inakadegaebal/items/b526ffbdbe7ff2b443f1)
+- [AWS の EC2 インスタンス（Amazon Linux）に Jenkins をインストールする - Qiita](http://qiita.com/thirota/items/1242767e40f233c65f7f)
+- [20121019-jenkins-akiko_pusu.pdf](https://www.slideshare.net/akiko_pusu/ss-14797776?ref=http://forza.cocolog-nifty.com/blog/2012/10/jenkins-73f2.html)
+- [Jenkins で GitHub のプッシュ時に自動デプロイする - sometimes I laugh](http://sil.hatenablog.com/entry/jenkins-github-auto-deploy)
+- [Jenkins の自動デプロイに Ansible を使ってみた - sometimes I laugh](http://sil.hatenablog.com/entry/jenkins-ansible-deploy)

@@ -1,9 +1,9 @@
 ---
-title: "macのターミナルでhtmlを整形（pretty print）する"
-date: "2017-10-22"
-tags: 
-  - "macos"
-  - "shell"
+title: 'macのターミナルでhtmlを整形（pretty print）する'
+date: '2017-10-22'
+tags:
+  - 'macos'
+  - 'shell'
 ---
 
 ```

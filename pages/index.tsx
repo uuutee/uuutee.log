@@ -1,16 +1,16 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
-import {getAllYears, getSortedPostsData} from '../lib/posts'
+import { getAllYears, getSortedPostsData } from '../lib/posts'
 import { GetStaticProps } from 'next'
 import { css } from '@emotion/react'
-import {BlogList} from '../components/blogList'
+import { BlogList } from '../components/blogList'
 import React from 'react'
 import { YearContext } from '../lib/contexts'
 
 type Post = {
-    date: string
-    title: string
-    id: string
+  date: string
+  title: string
+  id: string
 }
 
 type Year = {
@@ -21,9 +21,9 @@ type Year = {
 
 export default function Home({
   allPostsData,
-  allYears
+  allYears,
 }: {
-  allPostsData: Post[],
+  allPostsData: Post[]
   allYears: Year[]
 }) {
   return (
@@ -47,8 +47,8 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       allPostsData: allPostsData,
-      allYears: allYears
-    }
+      allYears: allYears,
+    },
   }
 }
 
@@ -58,7 +58,7 @@ const blogSectionStyle = css`
 `
 
 const blogHeaderStyle = css`
-    font-size: 1.5rem;
-    line-height: 1.4;
-    margin: 1rem 0;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 1rem 0;
 `

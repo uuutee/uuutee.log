@@ -1,8 +1,8 @@
 ---
-title: "nkfで文字コードを調べて一括で変換する"
-date: "2014-04-15"
-tags: 
-  - "shell"
+title: 'nkfで文字コードを調べて一括で変換する'
+date: '2014-04-15'
+tags:
+  - 'shell'
 ---
 
 文字コードを調べる
@@ -12,7 +12,7 @@ tags:
 nkf -g hoge.txt
 ```
 
-文字コードをUTF8に改行コードをLFに変換する
+文字コードを UTF8 に改行コードを LF に変換する
 
 ```
 #-w: UTF-8 BOM無しに変換
@@ -21,7 +21,7 @@ nkf -g hoge.txt
 nkf -w -Lu --overwrite hoge.txt
 ```
 
-## UTF-8にならない
+## UTF-8 にならない
 
 ```
 # UTF-8で上書き
@@ -30,7 +30,7 @@ nkf -w --overwrite file
 nkf -g file
 ```
 
-gは `guess` なので、あくまで推測。 英数字だけのファイルは `ASCII` 扱いになるので、日本語を入れることで、きちんとUTF-8で認識された。
+g は `guess` なので、あくまで推測。 英数字だけのファイルは `ASCII` 扱いになるので、日本語を入れることで、きちんと UTF-8 で認識された。
 
 ## 一括変更
 

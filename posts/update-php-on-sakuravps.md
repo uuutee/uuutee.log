@@ -1,18 +1,18 @@
 ---
-title: "さくらVPSのPHPを 5.3 から 5.6 にアップデートする"
-date: "2016-06-25"
-tags: 
-  - "さくらのvps"
-  - "linux"
-  - "php"
+title: 'さくらVPSのPHPを 5.3 から 5.6 にアップデートする'
+date: '2016-06-25'
+tags:
+  - 'さくらのvps'
+  - 'linux'
+  - 'php'
 ---
 
-デフォルトで入っているphpのバージョンが古くアップデートの必要があったので手順をメモ  
-さくらのVPSのOSは centos 6。
+デフォルトで入っている php のバージョンが古くアップデートの必要があったので手順をメモ  
+さくらの VPS の OS は centos 6。
 
 ## アップデート手順
 
-php5.6のパッケージを検索する
+php5.6 のパッケージを検索する
 
 ```
 # 標準リポジトリではインストール出来ないので、リポジトリを指定して検索
@@ -79,7 +79,7 @@ Importing GPG key 0x00F97F56:
 php -v
 ```
 
-5.6になっていればOK
+5.6 になっていれば OK
 
 ```
 PHP 5.6.23 (cli) (built: Jun 22 2016 09:05:27)
@@ -87,16 +87,16 @@ Copyright (c) 1997-2016 The PHP Group
 Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies
 ```
 
-## webからも確認する
+## web からも確認する
 
-Apacheを再起動
+Apache を再起動
 
 ```
 service httpd restart
 ```
 
-phpinfoのファイルを作って、webアクセスできるところにおいて確認  
-5.6になっていればOK
+phpinfo のファイルを作って、web アクセスできるところにおいて確認  
+5.6 になっていれば OK
 
 ```
 <?php phpinfo(); ?>
@@ -104,5 +104,5 @@ phpinfoのファイルを作って、webアクセスできるところにおい�
 
 ## 参考
 
-- [CentOS6.4(6.5)のPHPを5.6にアップデートする方法 - Qiita](http://qiita.com/zaburo/items/fd67b294c610d54c3aee)
-- [CentOS6.7 64bitのyumリポジトリにRemiを追加 | kakiro-web カキローウェブ](http://www.kakiro-web.com/linux/centos6-remi-install.html)
+- [CentOS6.4(6.5)の PHP を 5.6 にアップデートする方法 - Qiita](http://qiita.com/zaburo/items/fd67b294c610d54c3aee)
+- [CentOS6.7 64bit の yum リポジトリに Remi を追加 | kakiro-web カキローウェブ](http://www.kakiro-web.com/linux/centos6-remi-install.html)

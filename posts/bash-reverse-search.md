@@ -1,9 +1,9 @@
 ---
-title: "ターミナル(bash)で履歴を検索する"
-date: "2014-07-22"
-tags: 
-  - "macos"
-  - "shell"
+title: 'ターミナル(bash)で履歴を検索する'
+date: '2014-07-22'
+tags:
+  - 'macos'
+  - 'shell'
 ---
 
 ターミナル（bash）で過去のコマンドを検索したいときは、 `reverse-i-search` を使う
@@ -14,7 +14,7 @@ tags:
 ctrl + r  キーワード
 ```
 
-2個以上前に戻りたい場合
+2 個以上前に戻りたい場合
 
 ```
 戻りたい数だけ ctrl + r
@@ -53,7 +53,7 @@ cchars: ...
 
 再度 `ctrl + s` で確認すると戻れた。
 
-## profileに記述しておく
+## profile に記述しておく
 
 `stty stop undef` で解除しても再ログインするともとに戻るので、同じ内容をプロファイルに追記する。  
 （シェルを起動するたびに行いたいので、`.bash_profile` より `.bashrc` に追記する）

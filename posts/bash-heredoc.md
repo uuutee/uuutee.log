@@ -1,11 +1,11 @@
 ---
-title: "bashで複数行のテキスト（ヒアドキュメント）を入力する"
-date: "2017-01-20"
-tags: 
-  - "shell"
+title: 'bashで複数行のテキスト（ヒアドキュメント）を入力する'
+date: '2017-01-20'
+tags:
+  - 'shell'
 ---
 
-bashでも`cat` と `>>`(リダイレクト) を使うことで複数行のテキスト（ヒアドキュメント）を入力できる。
+bash でも`cat` と `>>`(リダイレクト) を使うことで複数行のテキスト（ヒアドキュメント）を入力できる。
 
 ## 使用例
 
@@ -40,4 +40,4 @@ EOF
 
 ## 参考
 
-[bashのヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)
+[bash のヒアドキュメントを活用する - Qiita](https://qiita.com/take4s5i/items/e207cee4fb04385a9952)

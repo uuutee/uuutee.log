@@ -1,9 +1,9 @@
 ---
-title: "mac で md5sum コマンドを使いたい"
-date: "2017-08-01"
-tags: 
-  - "macos"
-  - "shell"
+title: 'mac で md5sum コマンドを使いたい'
+date: '2017-08-01'
+tags:
+  - 'macos'
+  - 'shell'
 ---
 
 mac で `md5sum` コマンドを使いたかったのでメモ

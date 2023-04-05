@@ -1,30 +1,30 @@
 ---
-title: "macOSでWPScanを使ってWordPressの脆弱性診断をやってみる"
-date: "2017-07-04"
-tags: 
-  - "security"
-  - "wordpress"
+title: 'macOSでWPScanを使ってWordPressの脆弱性診断をやってみる'
+date: '2017-07-04'
+tags:
+  - 'security'
+  - 'wordpress'
 ---
 
-## WPScanとは
+## WPScan とは
 
-ruby製のWordPress脆弱性診断ツール。  
+ruby 製の WordPress 脆弱性診断ツール。  
 脆弱性診断やペネトレーションテスト（侵入試験）を行うことができる。
 
-## WPScanでできること
+## WPScan でできること
 
 - 脆弱性のあるプラグインがインストールされていないかのチェック
-- 対象のWordPressバージョンに対する脆弱性のチェック
+- 対象の WordPress バージョンに対する脆弱性のチェック
 - パスワードリストを用いた管理画面へのブルートフォースアタックのテスト など
 
 ## 注意
 
-WPScanは対象サーバに異常に負荷をかけます。注意の上使用してください。
+WPScan は対象サーバに異常に負荷をかけます。注意の上使用してください。
 
 ## インストール
 
-githubのREADMEを参考にインストールする  
-※rubyのバージョン管理は `rbenv` を使用
+github の README を参考にインストールする  
+※ruby のバージョン管理は `rbenv` を使用
 
 ```
 $ git clone https://github.com/wpscanteam/wpscan.git
@@ -35,11 +35,11 @@ $ bundle install --without test
 
 ## インストール時の問題
 
-WPScanに限った話ではないが、インストールに際していくつか問題があったので対処法をメモ
+WPScan に限った話ではないが、インストールに際していくつか問題があったので対処法をメモ
 
-### gem installでruby2.4.0が要求される
+### gem install で ruby2.4.0 が要求される
 
-`.ruby-version`を確認すると2.4.0が要求されている。
+`.ruby-version`を確認すると 2.4.0 が要求されている。
 
 ruby 2.4.0 をインストールする
 
@@ -48,8 +48,8 @@ $ rbenv install -l | grep 2.4.0
 2.4.0-dev
 ```
 
-homebrewの `ruby-build` が2.4.0-devまでしか対応していないので、  
-最新のリポジトリから2.4.0をインストールできるようにする
+homebrew の `ruby-build` が 2.4.0-dev までしか対応していないので、  
+最新のリポジトリから 2.4.0 をインストールできるようにする
 
 ```
 $ cd ~/.rbenv/plugins/ruby-build
@@ -57,7 +57,7 @@ $ git pull origin master
 $ rbenv install -v 2.4.0
 ```
 
-### bundle install の nokogiriがこける
+### bundle install の nokogiri がこける
 
 nokogiri のインストールが失敗する
 
@@ -83,7 +83,7 @@ If you are using Bundler, tell it to use the option:
     bundle install
 ```
 
-bundlerの設定を変更して、システムのライブラリを使用するようにする
+bundler の設定を変更して、システムのライブラリを使用するようにする
 
 ```
 $ bundle config build.nokogiri --use-system-libraries
@@ -98,7 +98,7 @@ Building nokogiri using system libraries.
 ERROR: cannot discover where libxml2 is located on your system. please make sure `pkg-config` is installed.
 ```
 
-homebrewを確認するとインストールはされている
+homebrew を確認するとインストールはされている
 
 ```
 $ brew list | grep libxml2
@@ -117,9 +117,9 @@ because macOS already provides this software and installing another version in
 parallel can cause all kinds of trouble.
 ```
 
-`keg-only` はmacOSとの競合回避のためインストールしただけでは有効にならず、symlinkを貼る必要のあるパッケージのこと。  
+`keg-only` は macOS との競合回避のためインストールしただけでは有効にならず、symlink を貼る必要のあるパッケージのこと。  
 `libxml2` はインストールされているが、有効になっていなかった  
-symlinkを貼って、homebrewの `libxml2` が使用されるようにする
+symlink を貼って、homebrew の `libxml2` が使用されるようにする
 
 ```
 $ brew link --force libxml2
@@ -174,7 +174,7 @@ $ crunch 5 13 -f charset.lst mixalpha | ruby wpscan.rb --url http://www.example.
 $ ruby wpscan.rb --url http://www.example.com/ --enumerate p
 ```
 
-WPScanのデータベースを更新する
+WPScan のデータベースを更新する
 
 ```
 $ ruby wpscan.rb --update
@@ -189,7 +189,7 @@ $ ruby wpscan.rb --url http://www.example.com/ --debug-output 2>debug.log
 ## 参考
 
 - [WPScan by the WPScan Team](https://wpscan.org/)
-- [技術ブログvol.7 WPScanを使ってWordPressサイトをチェックしてみる](http://www.denet.ad.jp/technology/2013/11/vol7-wpscanwordpress.html)　　
-- [rbenv+ruby-build で ruby のバージョンを2.4.0 に上げたときのメモ - Qiita](http://qiita.com/selmertsx/items/d4b281442a61da5f15b4)
-- [bundle install で nokogiri をインストールしろと言われる解決方法 - Qiita](http://qiita.com/pugiemonn/items/4b23a709ed194b02be6d)　　
-- [積んメモ: keg-onlyなパッケージはシンボリックリンクが作られない](http://mosquito7.blogspot.jp/2013/07/keg-only.html)
+- [技術ブログ vol.7 WPScan を使って WordPress サイトをチェックしてみる](http://www.denet.ad.jp/technology/2013/11/vol7-wpscanwordpress.html)
+- [rbenv+ruby-build で ruby のバージョンを 2.4.0 に上げたときのメモ - Qiita](http://qiita.com/selmertsx/items/d4b281442a61da5f15b4)
+- [bundle install で nokogiri をインストールしろと言われる解決方法 - Qiita](http://qiita.com/pugiemonn/items/4b23a709ed194b02be6d)
+- [積んメモ: keg-only なパッケージはシンボリックリンクが作られない](http://mosquito7.blogspot.jp/2013/07/keg-only.html)
