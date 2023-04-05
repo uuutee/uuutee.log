@@ -25,7 +25,7 @@ export default function TagPosts({ allPosts, allTags }) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = getAllTags()
   return {
-    paths: tags.map((tag) => {
+    paths: tags.map(tag => {
       return {
         params: {
           tag: tag.id,

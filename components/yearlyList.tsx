@@ -5,7 +5,7 @@ export const YearlyList = ({ years = [] }) => {
   return (
     <ul css={listStyle}>
       {years.length > 0 &&
-        years.map((year) => (
+        years.map(year => (
           <li key={year.id}>
             <span>
               <Link href={`/${year.id}`}>
