@@ -1,9 +1,9 @@
 ---
-title: "su と su - の違い"
-date: "2017-07-08"
-tags: 
-  - "linux"
-  - "shell"
+title: 'su と su - の違い'
+date: '2017-07-08'
+tags:
+  - 'linux'
+  - 'shell'
 ---
 
 `su` と `su -` の違いは下記の通り。
@@ -50,4 +50,4 @@ PWD=/root
 
 ## 参考
 
-[suコマンドでユーザーを切り替える](http://kazmax.zpp.jp/linux_beginner/su.html#ah_4)
+[su コマンドでユーザーを切り替える](http://kazmax.zpp.jp/linux_beginner/su.html#ah_4)

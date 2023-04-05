@@ -1,12 +1,12 @@
 ---
-title: "Linux や mac で You have new mail in ... と表示される"
-date: "2016-11-21"
-tags: 
-  - "linux"
+title: 'Linux や mac で You have new mail in ... と表示される'
+date: '2016-11-21'
+tags:
+  - 'linux'
 ---
 
 メールアカウントとして利用しているわけでもないのに、ログイン時に `You have new mail in ...` と表示されるようになった。  
-crontabの結果が、メールアカウントに送られているので、表示されていた。
+crontab の結果が、メールアカウントに送られているので、表示されていた。
 
 ## メール内容を確認
 
@@ -35,7 +35,7 @@ cat /dev/null > /var/spool/mail/root
 
 ## 非表示にする場合
 
-そもそもメールが来ないようにするにはcontabの環境変数に下記のように設定する
+そもそもメールが来ないようにするには contab の環境変数に下記のように設定する
 
 ```
 vim /etc/crontab

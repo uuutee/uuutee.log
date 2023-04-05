@@ -1,9 +1,9 @@
 ---
-title: "macのターミナルでグローバルIPからhost名を逆引きする（正引きも）"
-date: "2017-10-18"
-tags: 
-  - "macos"
-  - "shell"
+title: 'macのターミナルでグローバルIPからhost名を逆引きする（正引きも）'
+date: '2017-10-18'
+tags:
+  - 'macos'
+  - 'shell'
 ---
 
 `host` コマンドで調べる。

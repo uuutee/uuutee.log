@@ -1,14 +1,14 @@
 ---
-title: "Ansibleでテキスト置換を行ういくつかの方法"
-date: "2017-10-23"
-tags: 
-  - "ansible"
+title: 'Ansibleでテキスト置換を行ういくつかの方法'
+date: '2017-10-23'
+tags:
+  - 'ansible'
 ---
 
 ## copy
 
 - `dest` と `content` を指定することでプレーンテキストを書き込むことができる
-- contentの内容に変更がない場合はchangedにならない。
+- content の内容に変更がない場合は changed にならない。
 
 ```yaml
 - name: create a file
@@ -21,7 +21,7 @@ tags:
 
 > This module will replace all instances of a pattern within a file. It is up to the user to maintain idempotence by ensuring that the same pattern would never match any replacements made.
 
-パターンにマッチしたすべてのテキストを置換する。 regexpのパターンにマッチするテキストが存在するかによって冪等性が担保されている。
+パターンにマッチしたすべてのテキストを置換する。 regexp のパターンにマッチするテキストが存在するかによって冪等性が担保されている。
 
 ```yaml
 - replace:
@@ -31,13 +31,14 @@ tags:
   backup: yes # backupする
 ```
 
-regexp内のエスケープする文字
+regexp 内のエスケープする文字
 
 `(, ), [, ], ', /, .`
 
-regexp自体のエスケープ
-* なし, '', ""
-* 基本なしでOK。クォートが含まれる場合はクォートをエスケープする
+regexp 自体のエスケープ
+
+- なし, '', ""
+- 基本なしで OK。クォートが含まれる場合はクォートをエスケープする
 
 ```yaml
 - replace:
@@ -75,7 +76,7 @@ regexp自体のエスケープ
 
 - 単一行を置換する。複数行は置換できない
 - 複数箇所にマッチした場合最後にマッチしたもののみ書き換える。
-- regexp でマッチしたものを lineに書き換える
+- regexp でマッチしたものを line に書き換える
 
 ```yaml
 - name: timezone を日本語に変更
@@ -108,7 +109,6 @@ regexp自体のエスケープ
   content: |
     LoadModule process_security_module   modules/mod_process_security.so
   create: yes
-
   # 所有者やパーミッションも指定可
   owner: root
   group: root
@@ -117,7 +117,7 @@ regexp自体のエスケープ
 
 ## shell
 
-replace, lineinfileで対応できない場合に使用する
+replace, lineinfile で対応できない場合に使用する
 
 ```yaml
 # replaceだとsql置換時に UnicodeDecodeError: 'utf8' codec can't decode byte エラーが起きるのでsedで置換する
@@ -127,4 +127,4 @@ replace, lineinfileで対応できない場合に使用する
 
 ## 参考
 
-[Ansible ファイルを書き換える方法 - Qiita](https://qiita.com/park-jh/items/8676ec76b8313357194f) [Ansibleでファイルを書き換える時の5パターン | TANKSUZUKI.COM](http://tanksuzuki.com/post/ansible-config-control/)
+[Ansible ファイルを書き換える方法 - Qiita](https://qiita.com/park-jh/items/8676ec76b8313357194f) [Ansible でファイルを書き換える時の 5 パターン | TANKSUZUKI.COM](http://tanksuzuki.com/post/ansible-config-control/)

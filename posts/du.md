@@ -1,8 +1,8 @@
 ---
-title: "duでディレクトリの容量を調べる"
-date: "2015-11-02"
-tags: 
-  - "shell"
+title: 'duでディレクトリの容量を調べる'
+date: '2015-11-02'
+tags:
+  - 'shell'
 ---
 
 ディレクトリの容量を調べるには `du` コマンドを使う。
@@ -33,7 +33,7 @@ du | sort -nr
 du /path/to/dir --max-depth=1 | sort -nr
 ```
 
-100MB以上のディレクトリを表示
+100MB 以上のディレクトリを表示
 
 ```
 du -h /path/to/dir | grep [0-9][0-9][0-9]M

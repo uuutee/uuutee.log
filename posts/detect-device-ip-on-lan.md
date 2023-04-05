@@ -6,8 +6,8 @@ tags:
   - shell
 ---
 
-ARP(Address Resolution Protocol) 呼ばれるプロトコルにより、OS上でIPアドレスとMACアドレスの対応状況をデータベース化している(ARPテーブル)がある。  
-このARPテーブルを調べることでmacでLAN上のデバイスのIPを調べることができる。
+ARP(Address Resolution Protocol) 呼ばれるプロトコルにより、OS 上で IP アドレスと MAC アドレスの対応状況をデータベース化している(ARP テーブル)がある。  
+この ARP テーブルを調べることで mac で LAN 上のデバイスの IP を調べることができる。
 
 ```shell
 $ arp -a
@@ -20,6 +20,7 @@ $ arp -a
 ```
 
 ## arp-scan
+
 `arp-scan` というツールでより詳細な情報を確認できる
 
 ## インストール
@@ -29,7 +30,8 @@ $ brew install arp-scan
 ```
 
 ## ネットワークインターフェイスカード(NIC)を調べる
-NIC を指定しないとIPが見つからない旨のエラーが出るので  
+
+NIC を指定しないと IP が見つからない旨のエラーが出るので  
 あらかじめ、指定する NIC を調べておく必要がある
 
 ```shell

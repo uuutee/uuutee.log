@@ -1,12 +1,12 @@
 ---
-title: "CentOS7でユーザディレクトリへのApacheのアクセスが拒否される"
-date: "2017-09-25"
-tags: 
-  - "centos"
-  - "linux"
+title: 'CentOS7でユーザディレクトリへのApacheのアクセスが拒否される'
+date: '2017-09-25'
+tags:
+  - 'centos'
+  - 'linux'
 ---
 
-ユーザディレクトリにファイルを作成して、apacheからアクセスすると  
+ユーザディレクトリにファイルを作成して、apache からアクセスすると  
 パーミッションが正しいにもかかわらず、search パーミッションが無い旨のエラーが出る
 
 ```
@@ -26,8 +26,8 @@ Enforcing
 setenforce Permissive
 ```
 
-問題なくアクセスできるようになった。 今回はSElinuxは利用しないが、本来は、きちんとSELinuxを利用した上でのアクセス制御をするのが望ましい
+問題なくアクセスできるようになった。 今回は SElinux は利用しないが、本来は、きちんと SELinux を利用した上でのアクセス制御をするのが望ましい
 
 ## 参考
 
-[CentOS6.7 64bit SELinuxによるアクセス制御 | kakiro-web カキローウェブ](http://www.kakiro-web.com/linux/centos6-selinux.html)
+[CentOS6.7 64bit SELinux によるアクセス制御 | kakiro-web カキローウェブ](http://www.kakiro-web.com/linux/centos6-selinux.html)

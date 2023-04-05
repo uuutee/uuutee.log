@@ -1,12 +1,12 @@
 ---
-title: "Linuxのユーザー一覧を確認する"
-date: "2016-03-06"
-tags: 
-  - "linux"
-  - "shell"
+title: 'Linuxのユーザー一覧を確認する'
+date: '2016-03-06'
+tags:
+  - 'linux'
+  - 'shell'
 ---
 
-Linuxのユーザー一覧を確認するには、 `/etc/passwd` を開いて確認する。
+Linux のユーザー一覧を確認するには、 `/etc/passwd` を開いて確認する。
 
 ```
 cat /etc/passwd

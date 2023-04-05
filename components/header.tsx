@@ -2,16 +2,22 @@ import { css } from '@emotion/react'
 import Link from 'next/link'
 
 export const Header = () => {
-  return <header css={containerStyle}>
-    <div css={innerStyle}>
-      <h1 css={titleStyle}><Link href={'/'}><a css={linkStyle}>uuutee.log()</a></Link></h1>
-      <h2 css={subtitleStyle}>すぐ忘れるのでメモ</h2>
-    </div>
-  </header>
+  return (
+    <header css={containerStyle}>
+      <div css={innerStyle}>
+        <h1 css={titleStyle}>
+          <Link href={'/'}>
+            <a css={linkStyle}>uuutee.log()</a>
+          </Link>
+        </h1>
+        <h2 css={subtitleStyle}>すぐ忘れるのでメモ</h2>
+      </div>
+    </header>
+  )
 }
 
 const containerStyle = css`
-  background-image: linear-gradient(to right,#243949 0,#517fa4 100%);
+  background-image: linear-gradient(to right, #243949 0, #517fa4 100%);
 `
 
 const innerStyle = css`

@@ -2,9 +2,9 @@
 title: ターミナルでタブとスペースを相互に変換する (expand, unexpandコマンド)
 date: '2017-12-18'
 tags:
-    - Linux
-    - macOS
-    - shell
+  - Linux
+  - macOS
+  - shell
 ---
 
 タブをスペースに変換する

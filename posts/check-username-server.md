@@ -1,9 +1,9 @@
 ---
-title: "サーバでPHPやPerlを実行しているユーザ名を調べる"
-date: "2015-11-02"
-tags: 
-  - "perl"
-  - "php"
+title: 'サーバでPHPやPerlを実行しているユーザ名を調べる'
+date: '2015-11-02'
+tags:
+  - 'perl'
+  - 'php'
 ---
 
 レンタルサーバでアプリケーションを実行しているユーザ名を調べたかったのでメモ。
@@ -11,9 +11,8 @@ tags:
 ## php の場合
 
 - 下記ファイルを作成して、ブラウザでアクセスする。
-- phpが動いてhttpでアクセスできるディレクトリならどこでもいい
-    
-    - /contents/whoami.php
+- php が動いて http でアクセスできるディレクトリならどこでもいい
+  - /contents/whoami.php
 - `system()` や `exec()` で　`whoami` コマンドを実行してもいいが、 バックスラッシュ(\`\`)でも同様に実行できる
 
 ```
@@ -25,9 +24,8 @@ echo `whoami`;
 ## perl の場合
 
 - /cgi-bin/ ディレクトリの中に作成する。（サーバの設定による）
-    
-    - /cgi-bin/whoami.cgi
-- パーミッションは755にする
+  - /cgi-bin/whoami.cgi
+- パーミッションは 755 にする
 
 ```
 #!/usr/bin/perl -w

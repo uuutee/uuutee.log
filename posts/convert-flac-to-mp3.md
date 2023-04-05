@@ -1,9 +1,9 @@
 ---
-title: "macのターミナルで flac を一括で mp3 に変換する"
-date: "2017-09-11"
-tags: 
-  - "macos"
-  - "shell"
+title: 'macのターミナルで flac を一括で mp3 に変換する'
+date: '2017-09-11'
+tags:
+  - 'macos'
+  - 'shell'
 ---
 
 `flac` ファイルは `ffmpeg` で変換可能

@@ -1,22 +1,22 @@
 ---
-title: "diffコマンドに色をつけてみやすくしたい"
-date: "2017-07-18"
-tags: 
-  - "shell"
+title: 'diffコマンドに色をつけてみやすくしたい'
+date: '2017-07-18'
+tags:
+  - 'shell'
 ---
 
-diffコマンドを `git diff` のように色分けして diffをみれるようにしたい
+diff コマンドを `git diff` のように色分けして diff をみれるようにしたい
 
-## colordiffを使う
+## colordiff を使う
 
-macなのでhomebrewでインストールする
+mac なので homebrew でインストールする
 
 ```
 # インストール
 brew install colordiff
 ```
 
-diffを取る
+diff を取る
 
 ```
 # -u: unifiedオプション (git diffライクな見た目)
@@ -29,7 +29,7 @@ diff -u hoge.txt fuga.txt
 diff -u <(some-cmd-1) <(some-cmd-2)
 ```
 
-## vimdiffを使う
+## vimdiff を使う
 
 `vimdiff` も色分けされているので見やすい
 
