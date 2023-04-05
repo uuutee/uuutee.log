@@ -7,7 +7,7 @@ export const BlogList = ({ posts }) => {
   return (
     <ul css={blogListStyle}>
       {posts.length > 0 &&
-        posts.map((post) => (
+        posts.map(post => (
           <li
             key={post.id}
             css={css`
