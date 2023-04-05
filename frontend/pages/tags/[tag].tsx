@@ -1,33 +1,34 @@
 import Layout from '../../components/layout'
-import { getSortedPostsData, getAllYears } from '../../lib/posts'
+import { getSortedPostsData, getAllTags } from '../../lib/posts'
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { useRouter } from 'next/router'
 import {BlogList} from '../../components/blogList'
-import { YearContext } from '../../lib/contexts'
+import { TagContext } from '../../lib/contexts'
 
-export default function TagPosts({ allPosts, allYears }) {
+export default function TagPosts({ allPosts, allTags }) {
   const router = useRouter()
+
   return (
-    <YearContext.Provider value={allYears}>
+    <TagContext.Provider value={allTags}>
       <Layout>
         <Head>
-          <title>{router.query.year}</title>
+          <title>{router.query.tag}</title>
         </Head>
-        <h1>{router.query.year}</h1>
+        <h1>{router.query.tag}</h1>
         <BlogList posts={allPosts} />
       </Layout>
-    </YearContext.Provider>
+    </TagContext.Provider>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const years = getAllYears()
+  const tags = getAllTags()
   return {
-    paths: years.map(year => {
+    paths: tags.map(tag => {
       return {
         params: {
-          year: year.id
+          tag: tag.id
         }
       }
     }),
@@ -36,16 +37,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({params}) => {
-  const allPosts = getSortedPostsData().filter(post => {
-    const year = post.date.split('-')[0]
-    return year == params.year
-  })
   return {
     props: {
-      allPosts: allPosts.map(post => ({
-        ...post,
-      })),
-      allYears: getAllYears(),
+      allPosts: getSortedPostsData(),
+      allTags: getAllTags(),
     },
   }
 }

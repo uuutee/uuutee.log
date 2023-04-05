@@ -59,11 +59,11 @@ export async function getPostData(id: string) {
 
   // Use remark to convert markdown into HTML string
   const processedContent = await unified()
-      .use(remarkParse)
-      .use(remarkRehype)
-      .use(rehypeHighlight)
-      .use(rehypeStringify)
-      .process(matterResult.content)
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypeHighlight)
+    .use(rehypeStringify)
+    .process(matterResult.content)
   const contentHtml = processedContent.toString()
 
   // Combine the data with the id and contentHtml
