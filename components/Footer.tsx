@@ -1,12 +1,12 @@
 import { css } from '@emotion/react'
-import { YearlyList } from './yearlyList'
-import React from 'react'
+import YearlyList from './YearlyList'
+import React, { FC, useContext } from 'react'
 import { YearContext } from '../lib/contexts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { brands, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 
-export const Footer = () => {
-  const years = React.useContext(YearContext)
+const Footer: FC = () => {
+  const years = useContext(YearContext)
 
   return (
     <footer css={footerStyle}>
@@ -89,3 +89,5 @@ const copyrightStyle = css`
   color: #999;
   line-height: 1.2rem;
 `
+
+export default Footer

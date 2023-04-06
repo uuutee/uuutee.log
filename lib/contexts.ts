@@ -1,4 +1,4 @@
-import React from 'react'
+import { createContext } from 'react'
 
-export const YearContext = React.createContext([])
-export const TagContext = React.createContext([])
+export const YearContext = createContext([])
+export const TagContext = createContext([])

@@ -1,7 +1,13 @@
 import Link from 'next/link'
 import { css } from '@emotion/react'
+import { FC } from 'react'
+import { Year } from '../types'
 
-export const YearlyList = ({ years = [] }) => {
+type Props = {
+  years: Array<Year>
+}
+
+const YearlyList: FC<Props> = ({ years = [] }: Props) => {
   return (
     <ul css={listStyle}>
       {years.length > 0 &&
@@ -31,3 +37,5 @@ const linkStyle = css`
     color: #ccc;
   }
 `
+
+export default YearlyList

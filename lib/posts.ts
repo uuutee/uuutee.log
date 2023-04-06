@@ -6,10 +6,11 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeStringify from 'rehype-stringify'
+import { Post, Tag, Year } from '../types'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export function getSortedPostsData() {
+export const getSortedPostsData = (): Array<Post> => {
   // Get file names under /posts
   const fileNames = fs
     .readdirSync(postsDirectory)
@@ -41,7 +42,7 @@ export function getSortedPostsData() {
   })
 }
 
-export function getAllPostIds() {
+export const getAllPostIds = (): Array<{ params: { id: string} }> => {
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames.map(fileName => {
     return {
@@ -52,7 +53,7 @@ export function getAllPostIds() {
   })
 }
 
-export async function getPostData(id: string) {
+export const getPostData = async (id: string): Promise<Post> => {
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
@@ -78,7 +79,7 @@ export async function getPostData(id: string) {
 
 // 年別アーカイブ表示用
 // [{ id: '2017', text: '2017', count: 22 }...]
-export const getAllYears = () => {
+export const getAllYears = (): Array<Year> => {
   const allDates = getSortedPostsData().map(v => v.date)
   return allDates
     .map(v => v.split('-')[0])
@@ -93,7 +94,7 @@ export const getAllYears = () => {
 }
 
 // タグアーカイブ表示用
-export const getAllTags = () => {
+export const getAllTags = (): Array<Tag> => {
   const allTags = getSortedPostsData().map(v => v.tags)
   return allTags
     .flat()

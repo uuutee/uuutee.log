@@ -1,28 +1,39 @@
-import Layout from '../../components/layout'
+import Layout from '../../components/Layout'
 import { getAllPostIds, getAllYears, getPostData } from '../../lib/posts'
 import Head from 'next/head'
-import Date from '../../components/date'
+import Date from '../../components/Date'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Link from 'next/link'
-import { LightText } from '../../components/util'
+import LightText from '../../components/LightText'
 import { css } from '@emotion/react'
 import { YearContext } from '../../lib/contexts'
+import { FC } from 'react'
+import { Post, Year } from '../../types'
 
-export default function Post({
-  postData,
-  allYears,
-}: {
-  postData: {
-    title: string
-    date: string
-    contentHtml: string
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getAllPostIds()
+  return {
+    paths,
+    fallback: false,
   }
-  allYears: {
-    id: string
-    text: string
-    count: number
-  }[]
-}) {
+}
+
+type Props = {
+  postData: Post
+  allYears: Array<Year>
+}
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const postData = await getPostData(params.id as string)
+  return {
+    props: {
+      postData: postData,
+      allYears: getAllYears(),
+    },
+  }
+}
+
+const PostDetail: FC<Props> = ({ postData, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
       <Layout>
@@ -50,24 +61,6 @@ export default function Post({
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllPostIds()
-  return {
-    paths,
-    fallback: false,
-  }
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
-  return {
-    props: {
-      postData: postData,
-      allYears: getAllYears(),
-    },
-  }
-}
-
 const articleHeaderStyle = css`
   font-size: 2rem;
   line-height: 1.3;
@@ -75,3 +68,5 @@ const articleHeaderStyle = css`
   letter-spacing: -0.05rem;
   margin: 1rem 0;
 `
+
+export default PostDetail

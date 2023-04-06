@@ -1,25 +1,12 @@
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import { getSortedPostsData, getAllYears } from '../lib/posts'
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { useRouter } from 'next/router'
-import { BlogList } from '../components/blogList'
+import BlogList from '../components/BlogList'
 import { YearContext } from '../lib/contexts'
-
-export default function YearlyPosts({ allPosts, allYears }) {
-  const router = useRouter()
-  return (
-    <YearContext.Provider value={allYears}>
-      <Layout>
-        <Head>
-          <title>{router.query.year}</title>
-        </Head>
-        <h1>{router.query.year}</h1>
-        <BlogList posts={allPosts} />
-      </Layout>
-    </YearContext.Provider>
-  )
-}
+import { Post, Year } from '../types'
+import { FC } from 'react'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const years = getAllYears()
@@ -35,7 +22,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+type Props = {
+  allPosts: Array<Post>
+  allYears: Array<Year>
+}
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const allPosts = getSortedPostsData().filter(post => {
     const year = post.date.split('-')[0]
     return year == params.year
@@ -49,3 +41,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
   }
 }
+
+const YearlyPosts: FC<Props> = ({ allPosts, allYears }: Props) => {
+  const router = useRouter()
+  return (
+    <YearContext.Provider value={allYears}>
+      <Layout>
+        <Head>
+          <title>{router.query.year}</title>
+        </Head>
+        <h1>{router.query.year}</h1>
+        <BlogList posts={allPosts} />
+      </Layout>
+    </YearContext.Provider>
+  )
+}
+
+export default YearlyPosts
