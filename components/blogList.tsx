@@ -2,12 +2,12 @@ import { css } from '@emotion/react'
 import Link from 'next/link'
 import { FC } from 'react'
 import { Post } from '../types'
-import Date from './date'
-import { LightText } from './util'
+import Date from './Date'
+import LightText from './LightText'
 
 type Props = { posts: Array<Post> }
 
-export const BlogList: FC<Props> = ({ posts }: Props) => {
+const BlogList: FC<Props> = ({ posts }: Props) => {
   return (
     <ul css={blogListStyle}>
       {posts.length > 0 &&
@@ -40,3 +40,5 @@ const blogListStyle = css`
   padding: 0;
   margin: 0;
 `
+
+export default BlogList

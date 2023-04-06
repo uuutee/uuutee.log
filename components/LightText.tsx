@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react'
 
 type Props = { children: ReactNode }
 
-export const LightText: FC<Props> = ({ children }: Props) => {
+const LightText: FC<Props> = ({ children }: Props) => {
   return (
     <span
       css={css`
@@ -14,3 +14,5 @@ export const LightText: FC<Props> = ({ children }: Props) => {
     </span>
   )
 }
+
+export default LightText

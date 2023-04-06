@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { Header } from './header'
+import Header from './Header'
 import { css } from '@emotion/react'
-import { Footer } from './footer'
+import Footer from './Footer'
 import { FC, ReactNode } from 'react'
 
 export const siteTitle = 'Next.js Sample Website'
