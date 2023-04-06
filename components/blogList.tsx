@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import Link from 'next/link'
 import { FC } from 'react'
-import { Post } from '../pages/types'
+import { Post } from '../types'
 import Date from './date'
 import { LightText } from './util'
 

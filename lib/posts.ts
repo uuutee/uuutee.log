@@ -6,7 +6,7 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeStringify from 'rehype-stringify'
-import { Post, Tag, Year } from '../pages/types'
+import { Post, Tag, Year } from '../types'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 

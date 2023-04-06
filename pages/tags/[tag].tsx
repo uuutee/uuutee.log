@@ -5,7 +5,7 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { useRouter } from 'next/router'
 import { BlogList } from '../../components/blogList'
 import { TagContext } from '../../lib/contexts'
-import { Post, Tag } from '../types'
+import { Post, Tag } from '../../types'
 import { FC } from 'react'
 
 type Props = {

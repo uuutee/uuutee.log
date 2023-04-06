@@ -8,7 +8,7 @@ import { LightText } from '../../components/util'
 import { css } from '@emotion/react'
 import { YearContext } from '../../lib/contexts'
 import { FC } from 'react'
-import { Post, Year } from '../types'
+import { Post, Year } from '../../types'
 
 type Props = {
   postData: Post

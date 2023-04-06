@@ -6,7 +6,7 @@ import { css } from '@emotion/react'
 import { BlogList } from '../components/blogList'
 import React, { FC } from 'react'
 import { YearContext } from '../lib/contexts'
-import { Post, Year } from './types'
+import { Post, Year } from '../types'
 
 type Props = {
   allPosts: Array<Post>
