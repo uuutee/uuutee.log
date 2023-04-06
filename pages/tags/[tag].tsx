@@ -8,11 +8,6 @@ import { TagContext } from '../../lib/contexts'
 import { Post, Tag } from '../../types'
 import { FC } from 'react'
 
-type Props = {
-  allPosts: Array<Post>
-  allTags: Array<Tag>
-}
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = getAllTags()
   return {
@@ -27,7 +22,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+type Props = {
+  allPosts: Array<Post>
+  allTags: Array<Tag>
+}
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   return {
     props: {
       allPosts: getSortedPostsData(),

@@ -8,11 +8,6 @@ import { YearContext } from '../lib/contexts'
 import { Post, Year } from '../types'
 import { FC } from 'react'
 
-type Props = {
-  allPosts: Array<Post>
-  allYears: Array<Year>
-}
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const years = getAllYears()
   return {
@@ -27,7 +22,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+type Props = {
+  allPosts: Array<Post>
+  allYears: Array<Year>
+}
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const allPosts = getSortedPostsData().filter(post => {
     const year = post.date.split('-')[0]
     return year == params.year

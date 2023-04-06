@@ -13,6 +13,17 @@ type Props = {
   allYears: Array<Year>
 }
 
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const allPosts = getSortedPostsData()
+  const allYears = getAllYears()
+  return {
+    props: {
+      allPosts: allPosts,
+      allYears: allYears,
+    },
+  }
+}
+
 const Home: FC<Props> = ({ allPosts, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
@@ -27,17 +38,6 @@ const Home: FC<Props> = ({ allPosts, allYears }: Props) => {
       </Layout>
     </YearContext.Provider>
   )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-  const allPosts = getSortedPostsData()
-  const allYears = getAllYears()
-  return {
-    props: {
-      allPosts: allPosts,
-      allYears: allYears,
-    },
-  }
 }
 
 const blogSectionStyle = css`

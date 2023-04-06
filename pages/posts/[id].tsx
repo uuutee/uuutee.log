@@ -10,11 +10,6 @@ import { YearContext } from '../../lib/contexts'
 import { FC } from 'react'
 import { Post, Year } from '../../types'
 
-type Props = {
-  postData: Post
-  allYears: Array<Year>
-}
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds()
   return {
@@ -23,7 +18,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+type Props = {
+  postData: Post
+  allYears: Array<Year>
+}
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const postData = await getPostData(params.id as string)
   return {
     props: {
@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-const IdPost: FC<Props> = ({ postData, allYears }: Props) => {
+const PostDetail: FC<Props> = ({ postData, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
       <Layout>
@@ -69,4 +69,4 @@ const articleHeaderStyle = css`
   margin: 1rem 0;
 `
 
-export default IdPost
+export default PostDetail
