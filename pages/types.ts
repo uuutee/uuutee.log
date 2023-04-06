@@ -1,8 +1,9 @@
 export type Post = {
-  id: number
+  id: string
   title: string
   date: string
   contentHtml?: string
+  tags?: Array<string>
 }
 
 export type Year = {
