@@ -10,11 +10,11 @@ type Props = {
 const TagList: FC<Props> = ({ tags = [] }: Props) => {
   return (
     <ul css={listStyle}>
-      {tags.map(year => (
-        <li key={year.id}>
+      {tags.map(tag => (
+        <li key={tag.id}>
           <span>
-            <Link href={`/${year.id}`}>
-              <a css={linkStyle}>{year.text}</a>
+            <Link href={`/tags/${tag.id}`}>
+              <a css={linkStyle}>{tag.text}</a>
             </Link>
           </span>
         </li>
