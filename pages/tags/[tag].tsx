@@ -1,11 +1,11 @@
 import Layout from '../../components/Layout'
-import { getSortedPostsData, getAllTags } from '../../lib/posts'
+import { getSortedPostsData, getAllTags, getAllYears } from '../../lib/posts'
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { useRouter } from 'next/router'
 import BlogList from '../../components/BlogList'
-import { TagContext } from '../../lib/contexts'
-import { Post, Tag } from '../../types'
+import { TagContext, YearContext } from '../../lib/contexts'
+import { Post, Tag, Year } from '../../types'
 import { FC } from 'react'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -24,6 +24,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 type Props = {
   allPosts: Array<Post>
+  allYears: Array<Year>
   allTags: Array<Tag>
 }
 
@@ -31,24 +32,27 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   return {
     props: {
       allPosts: getSortedPostsData(),
+      allYears: getAllYears(),
       allTags: getAllTags(),
     },
   }
 }
 
-const TagPosts: FC<Props> = ({ allPosts, allTags }: Props) => {
+const TagPosts: FC<Props> = ({ allPosts, allYears, allTags }: Props) => {
   const router = useRouter()
 
   return (
-    <TagContext.Provider value={allTags}>
-      <Layout>
-        <Head>
-          <title>{router.query.tag}</title>
-        </Head>
-        <h1>{router.query.tag}</h1>
-        <BlogList posts={allPosts} />
-      </Layout>
-    </TagContext.Provider>
+    <YearContext.Provider value={allYears}>
+      <TagContext.Provider value={allTags}>
+        <Layout>
+          <Head>
+            <title>{router.query.tag}</title>
+          </Head>
+          <h1>{router.query.tag}</h1>
+          <BlogList posts={allPosts} />
+        </Layout>
+      </TagContext.Provider>
+    </YearContext.Provider>
   )
 }
 
