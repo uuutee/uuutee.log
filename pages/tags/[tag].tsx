@@ -1,12 +1,11 @@
 import Layout from '../../components/Layout'
 import { getSortedPostsData, getAllTags, getAllYears } from '../../lib/posts'
 import Head from 'next/head'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import BlogList from '../../components/BlogList'
 import { TagContext, YearContext } from '../../lib/contexts'
 import { Post, Tag, Year } from '../../types'
-import { FC } from 'react'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = getAllTags()
@@ -38,7 +37,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
 }
 
-const TagPosts: FC<Props> = ({ allPosts, allYears, allTags }: Props) => {
+const TagPosts: NextPage<Props> = ({ allPosts, allYears, allTags }: Props) => {
   const router = useRouter()
 
   return (

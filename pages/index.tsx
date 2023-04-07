@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/Layout'
 import { getAllTags, getAllYears, getSortedPostsData } from '../lib/posts'
-import { GetStaticProps } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { css } from '@emotion/react'
 import BlogList from '../components/BlogList'
-import React, { FC } from 'react'
+import React from 'react'
 import { TagContext, YearContext } from '../lib/contexts'
 import { Post, Tag, Year } from '../types'
 
@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   }
 }
 
-const Home: FC<Props> = ({ allPosts, allYears, allTags }: Props) => {
+const Home: NextPage<Props> = ({ allPosts, allYears, allTags }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
       <TagContext.Provider value={allTags}>

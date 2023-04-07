@@ -7,12 +7,11 @@ import {
 } from '../../lib/posts'
 import Head from 'next/head'
 import Date from '../../components/Date'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import Link from 'next/link'
 import LightText from '../../components/LightText'
 import { css } from '@emotion/react'
 import { TagContext, YearContext } from '../../lib/contexts'
-import { FC } from 'react'
 import { Post, Tag, Year } from '../../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -40,7 +39,11 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
 }
 
-const PostDetail: FC<Props> = ({ postData, allTags, allYears }: Props) => {
+const PostDetail: NextPage<Props> = ({
+  postData,
+  allTags,
+  allYears,
+}: Props) => {
   return (
     <YearContext.Provider value={allYears}>
       <TagContext.Provider value={allTags}>
