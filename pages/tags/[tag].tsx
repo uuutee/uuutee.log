@@ -1,54 +1,65 @@
 import Layout from '../../components/Layout'
-import { getSortedPostsData, getAllTags } from '../../lib/posts'
+import { getSortedPostsData, getAllTags, getAllYears } from '../../lib/posts'
 import Head from 'next/head'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import BlogList from '../../components/BlogList'
-import { TagContext } from '../../lib/contexts'
-import { Post, Tag } from '../../types'
-import { FC } from 'react'
+import { TagContext, YearContext } from '../../lib/contexts'
+import { Post, Tag, Year } from '../../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const tags = getAllTags()
+  const paths = getAllTags().map(tag => {
+    return {
+      params: {
+        tag: tag.id,
+      },
+    }
+  })
   return {
-    paths: tags.map(tag => {
-      return {
-        params: {
-          tag: tag.id,
-        },
-      }
-    }),
+    paths: paths,
     fallback: false,
   }
 }
 
 type Props = {
   allPosts: Array<Post>
+  allYears: Array<Year>
   allTags: Array<Tag>
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const tag = (() => {
+    if (Array.isArray(params.tag)) {
+      return params.tag[0]
+    }
+    return params.tag
+  })()
+  const allPosts = getSortedPostsData().filter(post => post.tags.includes(tag))
+
   return {
     props: {
-      allPosts: getSortedPostsData(),
+      allPosts: allPosts,
+      allYears: getAllYears(),
       allTags: getAllTags(),
     },
   }
 }
 
-const TagPosts: FC<Props> = ({ allPosts, allTags }: Props) => {
+const TagPosts: NextPage<Props> = ({ allPosts, allYears, allTags }: Props) => {
   const router = useRouter()
 
   return (
-    <TagContext.Provider value={allTags}>
-      <Layout>
-        <Head>
-          <title>{router.query.tag}</title>
-        </Head>
-        <h1>{router.query.tag}</h1>
-        <BlogList posts={allPosts} />
-      </Layout>
-    </TagContext.Provider>
+    <YearContext.Provider value={allYears}>
+      <TagContext.Provider value={allTags}>
+        <Layout>
+          <Head>
+            <title>{router.query.tag}</title>
+          </Head>
+          <h1>{router.query.tag}</h1>
+          <BlogList posts={allPosts} />
+        </Layout>
+      </TagContext.Provider>
+    </YearContext.Provider>
   )
 }
 

@@ -1,41 +1,43 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/Layout'
-import { getAllYears, getSortedPostsData } from '../lib/posts'
-import { GetStaticProps } from 'next'
+import { getAllTags, getAllYears, getSortedPostsData } from '../lib/posts'
+import { GetStaticProps, NextPage } from 'next'
 import { css } from '@emotion/react'
 import BlogList from '../components/BlogList'
-import React, { FC } from 'react'
-import { YearContext } from '../lib/contexts'
-import { Post, Year } from '../types'
+import React from 'react'
+import { TagContext, YearContext } from '../lib/contexts'
+import { Post, Tag, Year } from '../types'
 
 type Props = {
   allPosts: Array<Post>
   allYears: Array<Year>
+  allTags: Array<Tag>
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const allPosts = getSortedPostsData()
-  const allYears = getAllYears()
   return {
     props: {
-      allPosts: allPosts,
-      allYears: allYears,
+      allPosts: getSortedPostsData(),
+      allYears: getAllYears(),
+      allTags: getAllTags(),
     },
   }
 }
 
-const Home: FC<Props> = ({ allPosts, allYears }: Props) => {
+const Home: NextPage<Props> = ({ allPosts, allYears, allTags }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
-      <Layout home>
-        <Head>
-          <title>{siteTitle}</title>
-        </Head>
-        <section css={blogSectionStyle}>
-          <h2 css={blogHeaderStyle}>Blog</h2>
-          <BlogList posts={allPosts} />
-        </section>
-      </Layout>
+      <TagContext.Provider value={allTags}>
+        <Layout home>
+          <Head>
+            <title>{siteTitle}</title>
+          </Head>
+          <section css={blogSectionStyle}>
+            <h2 css={blogHeaderStyle}>Blog</h2>
+            <BlogList posts={allPosts} />
+          </section>
+        </Layout>
+      </TagContext.Provider>
     </YearContext.Provider>
   )
 }

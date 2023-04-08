@@ -10,12 +10,13 @@ import { Post, Tag, Year } from '../types'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export const getSortedPostsData = (): Array<Post> => {
+const getAllPosts = (): Array<Post> =>  {
   // Get file names under /posts
   const fileNames = fs
     .readdirSync(postsDirectory)
     .filter(fileName => fileName.endsWith('.md'))
-  const allPostsData = fileNames.map(fileName => {
+
+  return fileNames.map(fileName => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '')
 
@@ -32,8 +33,11 @@ export const getSortedPostsData = (): Array<Post> => {
       ...(matterResult.data as { date: string; title: string; tags: string[] }),
     }
   })
+}
+
+export const getSortedPostsData = (): Array<Post> => {
   // Sort posts by date
-  return allPostsData.sort((a, b) => {
+  return getAllPosts().sort((a, b) => {
     if (a.date < b.date) {
       return 1
     } else {
