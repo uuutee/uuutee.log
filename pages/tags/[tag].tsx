@@ -8,15 +8,15 @@ import { TagContext, YearContext } from '../../lib/contexts'
 import { Post, Tag, Year } from '../../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const tags = getAllTags()
+  const paths = getAllTags().map(tag => {
+    return {
+      params: {
+        tag: tag.id,
+      },
+    }
+  })
   return {
-    paths: tags.map(tag => {
-      return {
-        params: {
-          tag: tag.id,
-        },
-      }
-    }),
+    paths: paths,
     fallback: false,
   }
 }
@@ -28,9 +28,17 @@ type Props = {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const tag = (() => {
+    if (Array.isArray(params.tag)) {
+      return params.tag[0]
+    }
+    return params.tag
+  })()
+  const allPosts = getSortedPostsData().filter(post => post.tags.includes(tag))
+
   return {
     props: {
-      allPosts: getSortedPostsData(),
+      allPosts: allPosts,
       allYears: getAllYears(),
       allTags: getAllTags(),
     },

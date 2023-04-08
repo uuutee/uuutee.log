@@ -8,15 +8,15 @@ import { TagContext, YearContext } from '../lib/contexts'
 import { Post, Tag, Year } from '../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const years = getAllYears()
+  const paths = getAllYears().map(year => {
+    return {
+      params: {
+        year: year.id,
+      },
+    }
+  })
   return {
-    paths: years.map(year => {
-      return {
-        params: {
-          year: year.id,
-        },
-      }
-    }),
+    paths: paths,
     fallback: false,
   }
 }
