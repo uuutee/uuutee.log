@@ -1,9 +1,9 @@
-import Layout from '../components/Layout'
+import Layout from '../components/layouts/Layout'
 import { getSortedPostsData, getAllYears, getAllTags } from '../lib/posts'
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { useRouter } from 'next/router'
-import BlogList from '../components/BlogList'
+import BlogList from '../components/PostList'
 import { TagContext, YearContext } from '../lib/contexts'
 import { Post, Tag, Year } from '../types'
 

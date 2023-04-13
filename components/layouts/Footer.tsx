@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
-import YearlyList from './YearlyList'
+import YearlyList from '../YearlyList'
 import React, { FC, useContext } from 'react'
-import { TagContext, YearContext } from '../lib/contexts'
+import { TagContext, YearContext } from '../../lib/contexts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { brands, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
-import TagList from './TagList'
+import TagList from '../TagList'
 
 const Footer: FC = () => {
   const years = useContext(YearContext)
