@@ -1,10 +1,9 @@
-import Layout from '../components/Layouts'
-import { getSortedPostsData, getAllYears, getAllTags } from '../lib/posts'
-import Head from 'next/head'
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
+import Layout from '../components/Layouts'
 import BlogList from '../components/PostList'
 import { YearContext } from '../lib/contexts'
+import { getAllTags, getAllYears, getSortedPostsData } from '../lib/posts'
 import { Post, Year } from '../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {

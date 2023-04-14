@@ -1,10 +1,9 @@
-import Layout from '../../components/Layouts'
-import { getAllTags, getAllYears } from '../../lib/posts'
-import Head from 'next/head'
 import { GetStaticProps, NextPage } from 'next'
-import { YearContext } from '../../lib/contexts'
-import { Tag, Year } from '../../types'
+import Layout from '../../components/Layouts'
 import TagList from '../../components/TagList'
+import { YearContext } from '../../lib/contexts'
+import { getAllTags, getAllYears } from '../../lib/posts'
+import { Tag, Year } from '../../types'
 
 type Props = {
   allYears: Array<Year>

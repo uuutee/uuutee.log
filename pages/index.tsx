@@ -1,12 +1,10 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/Layouts'
-import { getAllYears, getSortedPostsData } from '../lib/posts'
-import { GetStaticProps, NextPage } from 'next'
 import { css } from '@emotion/react'
+import { GetStaticProps, NextPage } from 'next'
+import Layout from '../components/Layouts'
 import BlogList from '../components/PostList'
-import React from 'react'
 import { YearContext } from '../lib/contexts'
-import { Post, Tag, Year } from '../types'
+import { getAllYears, getSortedPostsData } from '../lib/posts'
+import { Post, Year } from '../types'
 
 type Props = {
   allPosts: Array<Post>
