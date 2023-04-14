@@ -1,4 +1,4 @@
-import Layout from '../../components/layouts/Layout'
+import Layout from '../../components/Layouts'
 import { getSortedPostsData, getAllTags, getAllYears } from '../../lib/posts'
 import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'

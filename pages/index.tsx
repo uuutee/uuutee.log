@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layouts/Layout'
+import Layout, { siteTitle } from '../components/Layouts'
 import { getAllYears, getSortedPostsData } from '../lib/posts'
 import { GetStaticProps, NextPage } from 'next'
 import { css } from '@emotion/react'
