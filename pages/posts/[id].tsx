@@ -1,17 +1,11 @@
-import Layout from '../../components/Layouts'
-import {
-  getAllPostIds,
-  getAllTags,
-  getAllYears,
-  getPostData,
-} from '../../lib/posts'
-import Head from 'next/head'
-import Date from '../../components/Date'
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
-import Link from 'next/link'
-import LightText from '../../components/LightText'
 import { css } from '@emotion/react'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import Link from 'next/link'
+import Date from '../../components/Date'
+import Layout from '../../components/Layouts'
+import LightText from '../../components/LightText'
 import { YearContext } from '../../lib/contexts'
+import { getAllPostIds, getAllYears, getPostData } from '../../lib/posts'
 import { Post, Year } from '../../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -33,7 +27,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     props: {
       postData: postData,
       allYears: getAllYears(),
-      allTags: getAllTags(),
     },
   }
 }
@@ -41,12 +34,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 const PostDetail: NextPage<Props> = ({ postData, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
-      <Layout>
-        <Head>
-          <title>{postData.title}</title>
-        </Head>
+      <Layout title={postData.title}>
         <article>
-          <h1 css={articleHeaderStyle}>{postData.title}</h1>
           <LightText>
             <Date dateString={postData.date} />
           </LightText>

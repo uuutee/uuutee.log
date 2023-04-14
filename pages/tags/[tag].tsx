@@ -1,6 +1,5 @@
 import Layout from '../../components/Layouts'
 import { getSortedPostsData, getAllTags, getAllYears } from '../../lib/posts'
-import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import BlogList from '../../components/PostList'
@@ -48,11 +47,13 @@ const TagPosts: NextPage<Props> = ({ allPosts, allYears }: Props) => {
 
   return (
     <YearContext.Provider value={allYears}>
-      <Layout>
-        <Head>
-          <title>{router.query.tag}</title>
-        </Head>
-        <h1>{router.query.tag}</h1>
+      <Layout
+        title={
+          Array.isArray(router.query.tag)
+            ? router.query.tag[0]
+            : router.query.tag
+        }
+      >
         <BlogList posts={allPosts} />
       </Layout>
     </YearContext.Provider>

@@ -26,9 +26,6 @@ const Home: NextPage<Props> = ({ allPosts, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
       <Layout home>
-        <Head>
-          <title>{siteTitle}</title>
-        </Head>
         <section css={blogSectionStyle}>
           <h2 css={blogHeaderStyle}>Blog</h2>
           <BlogList posts={allPosts} />
