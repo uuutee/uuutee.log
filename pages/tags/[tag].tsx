@@ -4,8 +4,8 @@ import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import BlogList from '../../components/PostList'
-import { TagContext, YearContext } from '../../lib/contexts'
-import { Post, Tag, Year } from '../../types'
+import { YearContext } from '../../lib/contexts'
+import { Post, Year } from '../../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllTags().map(tag => {
@@ -24,7 +24,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 type Props = {
   allPosts: Array<Post>
   allYears: Array<Year>
-  allTags: Array<Tag>
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
@@ -40,25 +39,22 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     props: {
       allPosts: allPosts,
       allYears: getAllYears(),
-      allTags: getAllTags(),
     },
   }
 }
 
-const TagPosts: NextPage<Props> = ({ allPosts, allYears, allTags }: Props) => {
+const TagPosts: NextPage<Props> = ({ allPosts, allYears }: Props) => {
   const router = useRouter()
 
   return (
     <YearContext.Provider value={allYears}>
-      <TagContext.Provider value={allTags}>
-        <Layout>
-          <Head>
-            <title>{router.query.tag}</title>
-          </Head>
-          <h1>{router.query.tag}</h1>
-          <BlogList posts={allPosts} />
-        </Layout>
-      </TagContext.Provider>
+      <Layout>
+        <Head>
+          <title>{router.query.tag}</title>
+        </Head>
+        <h1>{router.query.tag}</h1>
+        <BlogList posts={allPosts} />
+      </Layout>
     </YearContext.Provider>
   )
 }

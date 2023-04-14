@@ -11,8 +11,8 @@ import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import Link from 'next/link'
 import LightText from '../../components/LightText'
 import { css } from '@emotion/react'
-import { TagContext, YearContext } from '../../lib/contexts'
-import { Post, Tag, Year } from '../../types'
+import { YearContext } from '../../lib/contexts'
+import { Post, Year } from '../../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds()
@@ -25,7 +25,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 type Props = {
   postData: Post
   allYears: Array<Year>
-  allTags: Array<Tag>
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
@@ -39,36 +38,30 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
 }
 
-const PostDetail: NextPage<Props> = ({
-  postData,
-  allTags,
-  allYears,
-}: Props) => {
+const PostDetail: NextPage<Props> = ({ postData, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
-      <TagContext.Provider value={allTags}>
-        <Layout>
-          <Head>
-            <title>{postData.title}</title>
-          </Head>
-          <article>
-            <h1 css={articleHeaderStyle}>{postData.title}</h1>
-            <LightText>
-              <Date dateString={postData.date} />
-            </LightText>
-            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-          </article>
-          <div
-            css={css`
-              margin: 3rem 0 0;
-            `}
-          >
-            <Link href="/">
-              <a>← Back to home</a>
-            </Link>
-          </div>
-        </Layout>
-      </TagContext.Provider>
+      <Layout>
+        <Head>
+          <title>{postData.title}</title>
+        </Head>
+        <article>
+          <h1 css={articleHeaderStyle}>{postData.title}</h1>
+          <LightText>
+            <Date dateString={postData.date} />
+          </LightText>
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </article>
+        <div
+          css={css`
+            margin: 3rem 0 0;
+          `}
+        >
+          <Link href="/">
+            <a>← Back to home</a>
+          </Link>
+        </div>
+      </Layout>
     </YearContext.Provider>
   )
 }

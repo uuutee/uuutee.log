@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import BlogList from '../components/PostList'
-import { TagContext, YearContext } from '../lib/contexts'
+import { YearContext } from '../lib/contexts'
 import { Post, Tag, Year } from '../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -41,23 +41,17 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
 }
 
-const YearlyPosts: NextPage<Props> = ({
-  allPosts,
-  allYears,
-  allTags,
-}: Props) => {
+const YearlyPosts: NextPage<Props> = ({ allPosts, allYears }: Props) => {
   const router = useRouter()
   return (
     <YearContext.Provider value={allYears}>
-      <TagContext.Provider value={allTags}>
-        <Layout>
-          <Head>
-            <title>{router.query.year}</title>
-          </Head>
-          <h1>{router.query.year}</h1>
-          <BlogList posts={allPosts} />
-        </Layout>
-      </TagContext.Provider>
+      <Layout>
+        <Head>
+          <title>{router.query.year}</title>
+        </Head>
+        <h1>{router.query.year}</h1>
+        <BlogList posts={allPosts} />
+      </Layout>
     </YearContext.Provider>
   )
 }
