@@ -9,12 +9,12 @@ type Props = {
 
 const TagList: FC<Props> = ({ tags = [] }: Props) => {
   return (
-    <ul css={listStyle}>
+    <ul className="flex max-w-lg flex-wrap" css={listStyle}>
       {tags.map(tag => (
-        <li key={tag.id}>
+        <li className="mt-2 mb-2 mr-5" key={tag.id}>
           <span>
             <Link href={`/tags/${tag.id}`}>
-              <a css={linkStyle}>{tag.text}</a>
+              <a>{tag.text}</a>
             </Link>
           </span>
         </li>
@@ -27,14 +27,6 @@ const listStyle = css`
   list-style: none;
   margin: 0;
   padding: 0 0 0 10px;
-`
-
-const linkStyle = css`
-  color: #fff;
-  cursor: pointer;
-  &:hover {
-    color: #ccc;
-  }
 `
 
 export default TagList
