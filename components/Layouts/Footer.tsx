@@ -1,14 +1,12 @@
 import { css } from '@emotion/react'
-import YearlyList from './YearlyList'
+import YearlyList from '../YearlyList'
 import React, { FC, useContext } from 'react'
-import { TagContext, YearContext } from '../lib/contexts'
+import { YearContext } from '../../lib/contexts'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { brands, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
-import TagList from './TagList'
 
 const Footer: FC = () => {
   const years = useContext(YearContext)
-  const tags = useContext(TagContext)
 
   return (
     <footer css={footerStyle}>
@@ -16,10 +14,6 @@ const Footer: FC = () => {
         <section>
           <h2 css={sectionTitleStyle}>年度別記事</h2>
           <YearlyList years={years} />
-        </section>
-        <section>
-          <h2 css={sectionTitleStyle}>タグ一覧</h2>
-          <TagList tags={tags} />
         </section>
         <section>
           <div css={linksStyle}>

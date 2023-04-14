@@ -1,17 +1,17 @@
 import Head from 'next/head'
 import Header from './Header'
-import { css } from '@emotion/react'
 import Footer from './Footer'
 import { FC, ReactNode } from 'react'
 
 export const siteTitle = 'Next.js Sample Website'
 
 type Props = {
-  children: ReactNode
+  title?: string
   home?: boolean
+  children: ReactNode
 }
 
-const Layout: FC<Props> = ({ children, home }: Props) => {
+const Layout: FC<Props> = ({ title, home, children }: Props) => {
   return (
     <div>
       <Head>
@@ -28,19 +28,24 @@ const Layout: FC<Props> = ({ children, home }: Props) => {
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <title>{title ? title : siteTitle}</title>
       </Head>
       <Header />
-      <main css={mainStyle}>{children}</main>
+      <main className="mb-auto">
+        <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
+          {title && (
+            <div className="space-x-2 pt-6 pb-8 md:space-y-5">
+              <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:border-r-2 md:px-6 md:text-6xl md:leading-14">
+                {title}
+              </h1>
+            </div>
+          )}
+          {children}
+        </div>
+      </main>
       <Footer />
     </div>
   )
 }
-
-const mainStyle = css`
-  max-width: 540px;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
-  background-color: #fff;
-`
 
 export default Layout
