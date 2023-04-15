@@ -1,13 +1,14 @@
 import { css } from '@emotion/react'
 import Link from 'next/link'
 import { FC } from 'react'
+import { SITE_TITLE } from '../../lib/constants'
 
 const Header: FC = () => {
   return (
     <header className="flex items-center justify-between py-10">
       <h1 css={titleStyle}>
         <Link href={'/'}>
-          <a css={linkStyle}>uuutee.log</a>
+          <a css={linkStyle}>{SITE_TITLE}</a>
         </Link>
       </h1>
     </header>
