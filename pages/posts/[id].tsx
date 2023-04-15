@@ -38,7 +38,7 @@ const PostDetail: NextPage<Props> = ({ postData, allYears }: Props) => {
           <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
             <Date dateString={postData.date} />
           </div>
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
             {postData.title}
           </h1>
         </div>
