@@ -8,10 +8,10 @@ type Props = { posts: Array<Post> }
 
 const PostList: FC<Props> = ({ posts }: Props) => {
   return (
-    <ul>
+    <ul className="divide-y divide-gray-200 dark:divide-gray-700">
       {posts.length > 0 &&
         posts.map(post => (
-          <li key={post.id} className="py-4">
+          <li key={post.id} className="py-12">
             <div>
               <LightText>
                 <Date dateString={post.date} />

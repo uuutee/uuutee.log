@@ -1,7 +1,6 @@
-import { css } from '@emotion/react'
 import { GetStaticProps, NextPage } from 'next'
 import Layout from '../components/Layouts'
-import BlogList from '../components/PostList'
+import PostList from '../components/PostList'
 import { YearContext } from '../lib/contexts'
 import { getAllYears, getSortedPostsData } from '../lib/posts'
 import { Post, Year } from '../types'
@@ -24,24 +23,19 @@ const Home: NextPage<Props> = ({ allPosts, allYears }: Props) => {
   return (
     <YearContext.Provider value={allYears}>
       <Layout home>
-        <section css={blogSectionStyle}>
-          <h2 css={blogHeaderStyle}>Blog</h2>
-          <BlogList posts={allPosts} />
+        <section>
+          <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+            <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+              Blog
+            </h2>
+          </div>
+          <div className="divide-y divide-gray-200 dark:divide-gray-700">
+            <PostList posts={allPosts} />
+          </div>
         </section>
       </Layout>
     </YearContext.Provider>
   )
 }
-
-const blogSectionStyle = css`
-  font-size: 1.2rem;
-  line-height: 1.5;
-`
-
-const blogHeaderStyle = css`
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin: 1rem 0;
-`
 
 export default Home

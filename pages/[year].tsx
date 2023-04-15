@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Layout from '../components/Layouts'
-import BlogList from '../components/PostList'
+import PostList from '../components/PostList'
 import { YearContext } from '../lib/contexts'
 import { getAllTags, getAllYears, getSortedPostsData } from '../lib/posts'
 import { Post, Year } from '../types'
@@ -50,7 +50,7 @@ const YearlyPosts: NextPage<Props> = ({ allPosts, allYears }: Props) => {
             : router.query.year
         }
       >
-        <BlogList posts={allPosts} />
+        <PostList posts={allPosts} />
       </Layout>
     </YearContext.Provider>
   )
