@@ -16,10 +16,7 @@ const Header: FC = () => {
 }
 
 const titleStyle = css`
-  width: 200px;
   font-size: 1.8rem;
-  margin: 0;
-  text-align: center;
   letter-spacing: -2px;
   word-break: break-word;
 `
