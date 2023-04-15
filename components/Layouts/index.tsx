@@ -3,6 +3,7 @@ import { FC, ReactNode } from 'react'
 import { SITE_TITLE } from '../../lib/constants'
 import Footer from './Footer'
 import Header from './Header'
+import Main from './Main'
 
 type Props = {
   title?: string
@@ -30,11 +31,7 @@ const Layout: FC<Props> = ({ title, home, children }: Props) => {
         <title>{title ? title : SITE_TITLE}</title>
       </Head>
       <Header />
-      <main className="mb-auto">
-        <div className="divide-y divide-gray-200 dark:divide-gray-700">
-          {children}
-        </div>
-      </main>
+      <Main>{children}</Main>
       <Footer />
     </div>
   )
