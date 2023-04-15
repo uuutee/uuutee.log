@@ -23,12 +23,24 @@ const titleStyle = css`
 
 const linkStyle = css`
   font-weight: 700;
-  color: #243949;
-  transition: color 0.2s ease-in-out;
+  background-image: linear-gradient(to right, #243949 0, #517fa4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 0.2s ease-in-out;
   text-decoration: none;
   cursor: pointer;
   &:hover {
-    color: #517fa4;
+    background: linear-gradient(to right, #243949 0, #517fa4 100%);
+    background-size: 200% auto;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: shine 1s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
   }
 `
 
