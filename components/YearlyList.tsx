@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { css } from '@emotion/react'
+import Link from 'next/link'
 import { FC } from 'react'
 import { Year } from '../types'
 
@@ -31,10 +31,9 @@ const listStyle = css`
 `
 
 const linkStyle = css`
-  color: #fff;
   cursor: pointer;
   &:hover {
-    color: #ccc;
+    color: #444;
   }
 `
 
