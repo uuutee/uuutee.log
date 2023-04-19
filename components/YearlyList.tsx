@@ -14,7 +14,7 @@ const YearlyList: FC<Props> = ({ years = [] }: Props) => {
         years.map(year => (
           <li key={year.id}>
             <span>
-              <Link href={`/${year.id}`}>
+              <Link href={`/years/${year.id}`}>
                 <a css={linkStyle}>{year.text}</a>
               </Link>
             </span>

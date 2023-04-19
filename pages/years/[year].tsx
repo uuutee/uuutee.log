@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
-import Heading from '../components/Heading'
-import Layout from '../components/Layouts'
-import PostList from '../components/PostList'
-import { YearContext } from '../lib/contexts'
-import { getAllYears, getSortedPostsData } from '../lib/posts'
-import { Post, Year } from '../types'
+import Heading from '../../components/Heading'
+import Layout from '../../components/Layouts'
+import PostList from '../../components/PostList'
+import { YearContext } from '../../lib/contexts'
+import { getAllYears, getSortedPostsData } from '../../lib/posts'
+import { Post, Year } from '../../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllYears().map(year => {
