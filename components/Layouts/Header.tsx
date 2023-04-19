@@ -11,6 +11,26 @@ const Header: FC = () => {
           <a css={linkStyle}>{SITE_TITLE}</a>
         </Link>
       </h1>
+      <div className="flex items-center text-base leading-5">
+        <ul className="flex">
+          <li>
+            <a
+              className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+              href="/blog"
+            >
+              Blog
+            </a>
+          </li>
+          <li>
+            <a
+              className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
+              href="/tags"
+            >
+              Tags
+            </a>
+          </li>
+        </ul>
+      </div>
     </header>
   )
 }
