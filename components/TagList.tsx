@@ -14,8 +14,13 @@ const TagList: FC<Props> = ({ tags = [] }: Props) => {
           <li className="mt-2 mb-2 mr-5" key={tag.id}>
             <span>
               <Link href={`/tags/${tag.id}`}>
-                <a>{tag.text}</a>
+                <a className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                  {tag.text}
+                </a>
               </Link>
+              <span className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300">
+                ({tag.count})
+              </span>
             </span>
           </li>
         ))}
