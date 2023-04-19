@@ -16,37 +16,37 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 type Props = {
-  postData: Post
-  allYears: Array<Year>
+  post: Post
+  years: Array<Year>
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const postData = await getPostData(params.id as string)
+  const post = await getPostData(params.id as string)
   return {
     props: {
-      postData: postData,
-      allYears: getAllYears(),
+      post: post,
+      years: getAllYears(),
     },
   }
 }
 
-const PostDetail: NextPage<Props> = ({ postData, allYears }: Props) => {
+const PostDetail: NextPage<Props> = ({ post, years }: Props) => {
   return (
-    <YearContext.Provider value={allYears}>
-      <Layout title={postData.title}>
+    <YearContext.Provider value={years}>
+      <Layout title={post.title}>
         <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
           <div className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-            <Date dateString={postData.date} />
+            <Date dateString={post.date} />
           </div>
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-            {postData.title}
+            {post.title}
           </h1>
         </div>
         <article className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0 ">
           <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
             <div
               className="prose max-w-none pt-10 pb-8 dark:prose-dark"
-              dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+              dangerouslySetInnerHTML={{ __html: post.contentHtml }}
             />
           </div>
         </article>
