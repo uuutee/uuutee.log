@@ -16,9 +16,9 @@ const Header: FC = () => {
           <li>
             <a
               className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4"
-              href="/blog"
+              href="/years"
             >
-              Blog
+              Archives
             </a>
           </li>
           <li>

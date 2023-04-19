@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import Heading from '../../components/Heading'
 import Layout from '../../components/Layouts'
 import PostList from '../../components/PostList'
-import { YearContext } from '../../lib/contexts'
 import { getAllYears, getSortedPostsData } from '../../lib/posts'
 import { Post, Year } from '../../types'
 
@@ -39,17 +38,15 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
 }
 
-const YearlyPosts: NextPage<Props> = ({ posts, years }: Props) => {
+const YearlyPosts: NextPage<Props> = ({ posts }: Props) => {
   const router = useRouter()
   const title = `${router.query.year as string} 年の記事一覧`
 
   return (
-    <YearContext.Provider value={years}>
-      <Layout title={title}>
-        <Heading title={title} />
-        <PostList posts={posts} />
-      </Layout>
-    </YearContext.Provider>
+    <Layout title={title}>
+      <Heading title={title} />
+      <PostList posts={posts} />
+    </Layout>
   )
 }
 
