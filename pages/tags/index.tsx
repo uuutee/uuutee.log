@@ -6,24 +6,24 @@ import { getAllTags, getAllYears } from '../../lib/posts'
 import { Tag, Year } from '../../types'
 
 type Props = {
-  allYears: Array<Year>
-  allTags: Array<Tag>
+  years: Array<Year>
+  tags: Array<Tag>
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   return {
     props: {
-      allYears: getAllYears(),
-      allTags: getAllTags(),
+      years: getAllYears(),
+      tags: getAllTags(),
     },
   }
 }
 
-const TagPosts: NextPage<Props> = ({ allYears, allTags }: Props) => {
+const TagPosts: NextPage<Props> = ({ years, tags }: Props) => {
   return (
-    <YearContext.Provider value={allYears}>
+    <YearContext.Provider value={years}>
       <Layout title={'タグ一覧'}>
-        <TagList tags={allTags} />
+        <TagList tags={tags} />
       </Layout>
     </YearContext.Provider>
   )

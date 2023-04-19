@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { useRouter } from 'next/router'
 import Layout from '../components/Layouts'
-import BlogList from '../components/PostList'
+import PostList from '../components/PostList'
 import { YearContext } from '../lib/contexts'
-import { getAllTags, getAllYears, getSortedPostsData } from '../lib/posts'
+import { getAllYears, getSortedPostsData } from '../lib/posts'
 import { Post, Year } from '../types'
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -21,28 +21,27 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 type Props = {
-  allPosts: Array<Post>
-  allYears: Array<Year>
+  posts: Array<Post>
+  years: Array<Year>
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const allPosts = getSortedPostsData().filter(post => {
+  const posts = getSortedPostsData().filter(post => {
     const year = post.date.split('-')[0]
     return year == params.year
   })
   return {
     props: {
-      allPosts: allPosts,
-      allYears: getAllYears(),
-      allTags: getAllTags(),
+      posts: posts,
+      years: getAllYears(),
     },
   }
 }
 
-const YearlyPosts: NextPage<Props> = ({ allPosts, allYears }: Props) => {
+const YearlyPosts: NextPage<Props> = ({ posts, years }: Props) => {
   const router = useRouter()
   return (
-    <YearContext.Provider value={allYears}>
+    <YearContext.Provider value={years}>
       <Layout
         title={
           Array.isArray(router.query.year)
@@ -50,7 +49,7 @@ const YearlyPosts: NextPage<Props> = ({ allPosts, allYears }: Props) => {
             : router.query.year
         }
       >
-        <BlogList posts={allPosts} />
+        <PostList posts={posts} />
       </Layout>
     </YearContext.Provider>
   )

@@ -1,11 +1,11 @@
 import fs from 'fs'
-import path from 'path'
 import matter from 'gray-matter'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
+import path from 'path'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import { unified } from 'unified'
 import { Post, Tag, Year } from '../types'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
@@ -99,8 +99,8 @@ export const getAllYears = (): Array<Year> => {
 
 // タグアーカイブ表示用
 export const getAllTags = (): Array<Tag> => {
-  const allTags = getSortedPostsData().map(v => v.tags)
-  return allTags
+  const tags = getSortedPostsData().map(v => v.tags)
+  return tags
     .flat()
     .filter((e, i, a) => a.indexOf(e) === i)
     .sort((a, b) => {
@@ -117,7 +117,7 @@ export const getAllTags = (): Array<Tag> => {
       return {
         id: tag.toLowerCase(),
         text: tag,
-        count: allTags.filter(v => v.indexOf(tag) > -1).length,
+        count: tags.filter(v => v.indexOf(tag) > -1).length,
       }
     })
 }
