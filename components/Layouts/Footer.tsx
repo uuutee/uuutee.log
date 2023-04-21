@@ -2,10 +2,11 @@ import { css } from '@emotion/react'
 import { brands, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FC } from 'react'
+import { AUTHOR_NAME } from '../../lib/constants'
 
 const Footer: FC = () => {
   return (
-    <footer className="mt-16 flex flex-col items-center ">
+    <footer className="mt-16 flex flex-col items-center">
       <section>
         <div className="mb-3 flex space-x-4">
           <a
@@ -35,7 +36,7 @@ const Footer: FC = () => {
         </div>
       </section>
       <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
-        © 2022 uuutee All Rights Reserved.
+        © 2022 {AUTHOR_NAME} All Rights Reserved.
       </div>
     </footer>
   )
