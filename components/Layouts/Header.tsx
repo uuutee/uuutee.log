@@ -43,7 +43,7 @@ const titleStyle = css`
 
 const linkStyle = css`
   font-weight: 700;
-  background-image: linear-gradient(to right, #243949 0, #517fa4 100%);
+  background-image: linear-gradient(to right, #075985 0, #0c4a6e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: opacity 0.2s ease-in-out;
