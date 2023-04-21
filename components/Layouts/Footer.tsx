@@ -36,7 +36,7 @@ const Footer: FC = () => {
         </div>
       </section>
       <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
-        © 2022 {AUTHOR_NAME} All Rights Reserved.
+        © {new Date().getFullYear()} {AUTHOR_NAME} All Rights Reserved.
       </div>
     </footer>
   )
