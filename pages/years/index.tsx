@@ -1,27 +1,27 @@
 import { GetStaticProps, NextPage } from 'next'
 import Layout from '../../components/Layouts'
 import NumberedList from '../../components/NumberedList'
-import { getAllTags } from '../../lib/posts'
-import { Tag } from '../../types'
+import { getAllYears } from '../../lib/posts'
+import { Year } from '../../types'
 
 type Props = {
-  tags: Array<Tag>
+  years: Array<Year>
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   return {
     props: {
-      tags: getAllTags(),
+      years: getAllYears(),
     },
   }
 }
 
-const TagPosts: NextPage<Props> = ({ tags }: Props) => {
+const YearlyIndex: NextPage<Props> = ({ years }: Props) => {
   return (
-    <Layout title={'タグ一覧'}>
-      <NumberedList items={tags} />
+    <Layout title={'年別記事一覧'}>
+      <NumberedList items={years} />
     </Layout>
   )
 }
 
-export default TagPosts
+export default YearlyIndex

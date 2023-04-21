@@ -93,6 +93,7 @@ export const getAllYears = (): Array<Year> => {
         id: year,
         text: year,
         count: allDates.filter(v => v.match(new RegExp(`^${year}`))).length,
+        path: `/years/${year}`,
       }
     })
 }
@@ -118,6 +119,7 @@ export const getAllTags = (): Array<Tag> => {
         id: tag.toLowerCase(),
         text: tag,
         count: tags.filter(v => v.indexOf(tag) > -1).length,
+        path: `/tags/${tag.toLowerCase()}`,
       }
     })
 }
