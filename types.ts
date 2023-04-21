@@ -10,10 +10,12 @@ export type Year = {
   id: string
   text: string
   count: number
+  path: string
 }
 
 export type Tag = {
   id: string
   text: string
   count: number
+  path: string
 }

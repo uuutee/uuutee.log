@@ -4,6 +4,7 @@ interface Item {
   id: string
   text: string
   count: number
+  path: string
 }
 
 interface Props<T extends Item> {
@@ -20,7 +21,7 @@ const NumberedList = <T extends Item>({
           items.map(item => (
             <li className="mt-2 mb-2 mr-5" key={item.id}>
               <span>
-                <Link href={`/items/${item.id}`}>
+                <Link href={item.path}>
                   <a className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                     {item.text}
                   </a>
