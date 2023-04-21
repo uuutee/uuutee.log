@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next'
 import Layout from '../../components/Layouts'
-import TagList from '../../components/TagList'
+import NumberedList from '../../components/NumberedList'
 import { getAllTags } from '../../lib/posts'
 import { Tag } from '../../types'
 
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 const TagPosts: NextPage<Props> = ({ tags }: Props) => {
   return (
     <Layout title={'タグ一覧'}>
-      <TagList tags={tags} />
+      <NumberedList items={tags} />
     </Layout>
   )
 }

@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next'
 import Layout from '../../components/Layouts'
-import YearlyList from '../../components/YearlyList'
+import NumberedList from '../../components/NumberedList'
 import { getAllYears } from '../../lib/posts'
 import { Year } from '../../types'
 
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 const YearlyIndex: NextPage<Props> = ({ years }: Props) => {
   return (
     <Layout title={'年別記事一覧'}>
-      <YearlyList years={years} />
+      <NumberedList items={years} />
     </Layout>
   )
 }
