@@ -23,10 +23,11 @@ const PostList: FC<Props> = ({ posts }: Props) => {
                   <div className="space-y-6">
                     <div>
                       <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                        <Link href={`/posts/${post.id}`}>
-                          <a className="text-gray-900 dark:text-gray-100">
-                            {post.title}
-                          </a>
+                        <Link
+                          href={`/posts/${post.id}`}
+                          className="text-gray-900 dark:text-gray-100"
+                        >
+                          {post.title}
                         </Link>
                       </h2>
                     </div>

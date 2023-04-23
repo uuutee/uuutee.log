@@ -7,8 +7,8 @@ const Header: FC = () => {
   return (
     <header className="flex items-center justify-between py-10">
       <h1 css={titleStyle}>
-        <Link href={'/'}>
-          <a css={linkStyle}>{SITE_TITLE}</a>
+        <Link href={'/'} css={linkStyle}>
+          {SITE_TITLE}
         </Link>
       </h1>
       <div className="flex items-center text-base leading-5">
