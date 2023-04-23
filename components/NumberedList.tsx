@@ -21,10 +21,11 @@ const NumberedList = <T extends Item>({
           items.map(item => (
             <li className="mt-2 mb-2 mr-5" key={item.id}>
               <span>
-                <Link href={item.path}>
-                  <a className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                    {item.text}
-                  </a>
+                <Link
+                  href={item.path}
+                  className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                >
+                  {item.text}
                 </Link>
               </span>
               <span className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300">
