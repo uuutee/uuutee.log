@@ -2,10 +2,6 @@
 
 ## Format
 
-### Prettier とは
-
-Prettier（プリティア）は、一貫したコーディングスタイルを自動的に適用することができるコードフォーマッターです。主に JavaScript、TypeScript、CSS、HTML、Markdown、GraphQL などの言語に対応しており、コードを整形して読みやすくし、開発者間でのスタイルの統一を容易にします。
-
 ### 手順
 
 `prettier` をインストールする
