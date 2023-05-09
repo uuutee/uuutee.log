@@ -1,4 +1,4 @@
-# uuutee.net
+# uuutee.log
 
 ## Format
 
