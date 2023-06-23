@@ -1,5 +1,17 @@
 # uuutee.log
 
+## Development
+
+```shell
+npm run dev
+```
+
+## Deployment
+
+- `git push -u origin HEAD`
+- Pull request 作成
+- マージすると自動的にデプロイされる
+
 ## Format
 
 ### 手順
