@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { brands, solid } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faRss } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FC } from 'react'
 import { AUTHOR_NAME } from '../../lib/constants'
@@ -15,7 +16,7 @@ const Footer: FC = () => {
             css={linkStyle}
             className="text-sm text-gray-500 transition hover:text-gray-600"
           >
-            <FontAwesomeIcon icon={brands('github')} />
+            <FontAwesomeIcon icon={faGithub} />
           </a>
           <a
             href="https://twitter.com/uuutee"
@@ -23,7 +24,7 @@ const Footer: FC = () => {
             css={linkStyle}
             className="text-sm text-gray-500 transition hover:text-gray-600"
           >
-            <FontAwesomeIcon icon={brands('twitter')} />
+            <FontAwesomeIcon icon={faTwitter} />
           </a>
           <a
             href="/"
@@ -31,7 +32,7 @@ const Footer: FC = () => {
             css={linkStyle}
             className="text-sm text-gray-500 transition hover:text-gray-600"
           >
-            <FontAwesomeIcon icon={solid('rss')} />
+            <FontAwesomeIcon icon={faRss} />
           </a>
         </div>
       </section>
